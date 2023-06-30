@@ -113,7 +113,9 @@ color:black;
 	background-color: rgb(115, 115, 255);
 	margin-top: -1rem;
 }
-
+form #tipoUsuario{
+	width: 30vw;
+}
 
 /*media query*/
 

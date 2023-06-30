@@ -17,34 +17,34 @@
 		<section class="formCapacitacion d-fex align-center"> 
 			<h1>Datos de la capacitación</h1>
 			<form action="CrearCapacitacion" method="POST">
-				<p>
-					<label class="form-label">Número de identificador:</label>
+				<div>
+					<label class="form-label">Nombre:</label>
 					<input class="form-control" placeholder="Ingresa el n° de indetificador" type="text" name="idCapacitacion">
-				</p>
-				<p>
+				</div>
+				<div>
 					<label class="form-label">Rut del Cliente:</label>
 					<input  class="form-control" type="number"placeholder="Ingrese el Rut del cliente sin guión"name="rutCliente">
-				</p>
-				<p>
+				</div>
+				<div>
 					<label class="form-label">Día: </label>
 					<input class="form-control" type="text" placeholder="Ingresa el día (lunes a domingo)" name="dia">
-				</p>
-				<p>
+				</div>
+				<div>
 					<label class="form-label">Hora: </label>
 					<input class="form-control" type="text"  placeholder="Ingresa la hora en formato HH:MM" name="hora">
-				</p>
-				<p>
+				</div>
+				<div>
 					<label class="form-label">Lugar:</label>
 					<input class="form-control" type="text" placeholder="Ingresa el lugar de la capacitación"name="lugar">
-				</p>
+				</div>
 				<p>
 					<label class="form-label">Duración:</label>
 					<input class="form-control" type="number" placeholder="Ingresa la duración en minutos" name="duracion">
-				</p>
-				<p>
+				</div>
+				<div>
 					<label class="form-label">Cantidad de asistentes:</label>
 					<input class="form-control" type="number" placeholder="Ingresa la cantidad de asistentes" name="cantidadAsistentes">
-				</p>
+				</div>
 				<div class="d-flex justify-content-center">
 					<button class="btn"type="submit">Enviar</button>
 				

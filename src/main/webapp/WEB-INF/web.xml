@@ -79,4 +79,24 @@
     <servlet-name>CerrarSession</servlet-name>
     <url-pattern>/CerrarSession</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CrearUsuario</display-name>
+    <servlet-name>CrearUsuario</servlet-name>
+    <servlet-class>controlador.CrearUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CrearUsuario</servlet-name>
+    <url-pattern>/CrearUsuario</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListarUsuario</display-name>
+    <servlet-name>ListarUsuario</servlet-name>
+    <servlet-class>controlador.ListarUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListarUsuario</servlet-name>
+    <url-pattern>/ListarUsuario</url-pattern>
+  </servlet-mapping>
 </web-app>
