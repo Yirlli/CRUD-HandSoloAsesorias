@@ -26,7 +26,7 @@ public class Inicio extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		getServletContext().getRequestDispatcher("Index.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);
 	}
 
 	/**

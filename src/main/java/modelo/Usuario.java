@@ -1,18 +1,19 @@
 package modelo;
 
+import java.time.LocalDate;
 
 public abstract class Usuario {
 	
 	
-		private String nombre;
-		private String fechaNacimiento;
+		private String user;
+		private LocalDate fechaNacimiento;
 		private Integer run;
 
 		
 		public Usuario() {}
 
-		public Usuario (String nombre, String fechaNacimiento, Integer run){
-			this.nombre = nombre;
+		public Usuario (String user, LocalDate fechaNacimiento, Integer run){
+			this.user = user;
 			this.fechaNacimiento = fechaNacimiento;
 			this.run = run;
 			
@@ -20,21 +21,21 @@ public abstract class Usuario {
 		}
 
 
-		public String getNombre(){
-			return nombre;
+		public String getUser(){
+			return user;
 		}
 		
-		public void setNombre(String nombre) {
+		public void setUser(String nombre) {
 
-			this.nombre = nombre;
+			this.user = user;
 		}
 		
 
-		public String  getFechaNacimiento() {
+		public LocalDate getFechaNacimiento() {
 			return fechaNacimiento;
 		}
 		
-		public void setFechaNacimiento(String fechaNacimiento) {
+		public void setFechaNacimiento(LocalDate fechaNacimiento) {
 			
 			this.fechaNacimiento = fechaNacimiento;
 		}
@@ -49,7 +50,7 @@ public abstract class Usuario {
 		
 		@Override 
 		public String toString() {
-			return "Nombre: " + nombre + " \n RUT " + run + " \n Fecha de nacimiento " + fechaNacimiento;
+			return "Nombre: " + user + " \n RUT " + run + " \n Fecha de nacimiento " + fechaNacimiento;
 		}
 
 		

@@ -20,20 +20,21 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="CrearCapacitacion">Crear Capacitacion</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="CrearUsuario">Crear Usuario</a>
+          </li>
            <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="Contacto">Contacto</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="ListarCapacitaciones">Lista de Capacitaciones</a>
-          </li>
+       
     
           <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Cuenta
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="Login.jsp">Inicia Sesión</a></li>
-              <li><a class="dropdown-item" href="#">Crear Cuenta</a></li>
+              <li><a class="dropdown-item" href="Login">Inicia Sesión</a></li>
+              <li><a class="dropdown-item" href="CrearUsuario">Crear Usuario</a></li>
             </ul>
           </li>
            <li class="nav-item">

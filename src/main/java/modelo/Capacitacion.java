@@ -1,13 +1,13 @@
 package modelo;
 
 public class Capacitacion {
-	private String identificador;
-	private String rutCliente;
+	private Integer identificador;
+	private Integer rutCliente;
 	private String dia;
 	private String hora;
 	private String lugar;
-	private String duracion;
-	private String cantidadAsistentes;
+	private Integer duracion;
+	private Integer cantidadAsistentes;
 
 	
 	
@@ -16,34 +16,34 @@ public class Capacitacion {
 	}
 
 
-	public Capacitacion(String identificador, String rutCliente, String dia, String hora, String lugar, String duracion,
-			String cantidadAsistentes) {
+	public Capacitacion(Integer identificador, Integer rutCliente, String dia, String hora, String lugar, Integer duracion,
+			Integer cantidadAsistentes) {
 		this.identificador = identificador;
 		this.rutCliente = rutCliente;
 		this.dia = dia;
 		this.hora = hora;
 		this.lugar = lugar;
-		this.duracion = duracion;
+		this.duracion = duracion*60;
 		this.cantidadAsistentes = cantidadAsistentes;
 	}
 
 
-	public String getIdentificador() {
+	public Integer getIdentificador() {
 		return identificador;
 	}
 
 
-	public void setIdentificador(String identificador) {
+	public void setIdentificador(Integer identificador) {
 		this.identificador = identificador;
 	}
 
 
-	public String getRutCliente() {
+	public Integer getRutCliente() {
 		return rutCliente;
 	}
 
 
-	public void setRutCliente(String rutCliente) {
+	public void setRutCliente(Integer rutCliente) {
 		this.rutCliente = rutCliente;
 	}
 
@@ -78,22 +78,22 @@ public class Capacitacion {
 	}
 
 
-	public String getDuracion() {
+	public Integer getDuracion() {
 		return duracion;
 	}
 
 
-	public void setDuracion(String duracion) {
+	public void setDuracion(Integer duracion) {
 		this.duracion = duracion;
 	}
 
 
-	public String getCantidadAsistentes() {
+	public Integer getCantidadAsistentes() {
 		return cantidadAsistentes;
 	}
 
 
-	public void setCantidadAsistentes(String cantidadAsistentes) {
+	public void setCantidadAsistentes(Integer cantidadAsistentes) {
 		this.cantidadAsistentes = cantidadAsistentes;
 	}
 

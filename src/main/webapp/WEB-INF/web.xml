@@ -4,7 +4,7 @@
     <description></description>
     <display-name>Contacto</display-name>
     <servlet-name>Contacto</servlet-name>
-    <servlet-class>ServletAll.Contacto</servlet-class>
+    <servlet-class>controlador.Contacto</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Contacto</servlet-name>
@@ -23,7 +23,7 @@
     <description></description>
     <display-name>CrearCapacitacion</display-name>
     <servlet-name>CrearCapacitacion</servlet-name>
-    <servlet-class>ServletAll.CrearCapacitacion</servlet-class>
+    <servlet-class>controlador.CrearCapacitacion</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CrearCapacitacion</servlet-name>
@@ -33,7 +33,7 @@
     <description></description>
     <display-name>Inicio</display-name>
     <servlet-name>Inicio</servlet-name>
-    <servlet-class>ServletAll.Inicio</servlet-class>
+    <servlet-class>controlador.Inicio</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Inicio</servlet-name>
@@ -43,7 +43,7 @@
     <description></description>
     <display-name>ListarCapacitaciones</display-name>
     <servlet-name>ListarCapacitaciones</servlet-name>
-    <servlet-class>ServletAll.ListarCapacitaciones</servlet-class>
+    <servlet-class>controlador.ListarCapacitaciones</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ListarCapacitaciones</servlet-name>
@@ -53,7 +53,7 @@
     <description></description>
     <display-name>Login</display-name>
     <servlet-name>Login</servlet-name>
-    <servlet-class>ServletAll.Login</servlet-class>
+    <servlet-class>controlador.Login</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
@@ -63,7 +63,7 @@
     <description></description>
     <display-name>Menu</display-name>
     <servlet-name>Menu</servlet-name>
-    <servlet-class>ServletAll.Menu</servlet-class>
+    <servlet-class>controlador.Menu</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Menu</servlet-name>
@@ -73,7 +73,7 @@
     <description></description>
     <display-name>CerrarSession</display-name>
     <servlet-name>CerrarSession</servlet-name>
-    <servlet-class>ServletAll.CerrarSession</servlet-class>
+    <servlet-class>controlador.CerrarSession</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CerrarSession</servlet-name>
@@ -99,4 +99,5 @@
     <servlet-name>ListarUsuario</servlet-name>
     <url-pattern>/ListarUsuario</url-pattern>
   </servlet-mapping>
+  
 </web-app>

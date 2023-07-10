@@ -1,16 +1,18 @@
 package modelo;
 
+import java.time.LocalDate;
+
 public class Profesional extends Usuario {
 
 	private String titulo;
-	private String  fechaIngreso;
+	private LocalDate  fechaIngreso;
 	
 	public Profesional() {
 		
 	}
 	
-	public Profesional(String nombre, String  fechaNacimiento,  int run, String titulo, String fechaIngreso) {
-		super(nombre, fechaNacimiento, run);
+	public Profesional(String user, LocalDate  fechaNacimiento, Integer run, String titulo, LocalDate fechaIngreso) {
+		super(user, fechaNacimiento, run);
 		this.titulo= titulo;
 		this.fechaIngreso = fechaIngreso;
 		
@@ -27,12 +29,12 @@ public class Profesional extends Usuario {
 	}
 
 
-	public String getFechaIngreso() {
+	public LocalDate getFechaIngreso() {
 		return fechaIngreso;
 	}
 
 
-	public void setFechaIngreso(String fechaIngreso) {
+	public void setFechaIngreso(LocalDate fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
 	
@@ -40,7 +42,7 @@ public class Profesional extends Usuario {
 	
 	@Override
 	public String toString() {
-		return "Profesional [\nNombre: " +getNombre() + "\nRun : " +titulo+ fechaIngreso+"]" 
+		return "Profesional [\nNombre: " +getUser() + "\nRun : " +titulo+ fechaIngreso+"]" 
 				;
 	}
 	

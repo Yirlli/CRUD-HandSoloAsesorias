@@ -42,9 +42,9 @@ public class Login extends HttpServlet {
 			HttpSession misesion = request.getSession();
 			misesion.setAttribute("userLogin", usuario);
 			
-			response.sendRedirect("Contacto");
+			getServletContext().getRequestDispatcher("/vista/Contacto.jsp").forward(request, response);
 			}else {
-				response.sendRedirect("Login.jsp");
+				getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
 				}
 	
 	

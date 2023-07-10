@@ -14,6 +14,7 @@
 	<header>
  		<jsp:include page="Menu.jsp" />
 	</header>
+	<h3 class="text-center p-1">Lista de capacitaciones</h3>
 	<% 
 		List<Capacitacion> listaCapacitacion = (List) request.getSession().getAttribute("listaCapacitacion");
 		int cont = 1;
@@ -21,21 +22,43 @@
 		
 	
 	%>
-	<section class="fondo d-flex  ">
-			<div class="listCapacitacion">
-				<p><b>Capacitacion N°<%=cont %></b></p>
-				<p><b>Identificador N°<%=capacitaciones.getIdentificador() %></b></p>
-				<p><b>Rut del cliente <%=capacitaciones.getRutCliente()%></b></p>
-				<p><b>Día <%=capacitaciones.getDia() %></b></p>
-				<p><b>Hora<%=capacitaciones.getHora()%></b></p>
-				<p><b>Lugar<%=capacitaciones.getLugar()%></b></p>
-				<p><b>Duración <%=capacitaciones.getDuracion() %></b></p>
-				<p><b>Cantidad de asistentes <%=capacitaciones.getCantidadAsistentes() %></b></p>
-				<p>-----------------------------------------------</p>
+	<section class="fondo d-flex container-fluid ">
+			<div class="listCapacitacion d-flex flex-column bg-white rounded-1 p-5">
+				
+				<div class="container-fluid">
+					<p>
+						<b>Identificador N°: </b><%=capacitaciones.getIdentificador().toString() %>
+					</p>
+					<p>
+						<b>Rut del cliente: </b> <%=capacitaciones.getRutCliente().toString()%>
+					</p>
+					<p>	
+						<b>Día :</b><%=capacitaciones.getDia() %>
+					</p>
+					<p>
+						<b>Hora :</b><%=capacitaciones.getHora()%>
+					</p>
+					<p>
+						<b>Lugar :</b><%=capacitaciones.getLugar()%>
+					</p>
+					<p>
+						<b>Duración: </b><%=capacitaciones.getDuracion().toString() %>
+					</p>
+					<p>
+						<b>Cantidad de asistentes : </b> <%=capacitaciones.getCantidadAsistentes().toString() %>
+					</p>
+				
+				</div>
+				
+				
 			</div>
 		</section>
 	
 	<%} %>
+	
+	<div class="volver">
+		<a href="Index.jsp">Volver a página de inicio</a>
+	</div>
 
 
 

@@ -1,5 +1,7 @@
 package modelo;
 
+import java.time.LocalDate;
+
 public class Administrativo extends Usuario{
 
 	private String area;
@@ -10,8 +12,8 @@ public class Administrativo extends Usuario{
 		
 	}
 	
-	public Administrativo(String nombre, String  fechaNacimiento, int run, String area, String experienciaPrevia) {
-		super(nombre, fechaNacimiento, run);
+	public Administrativo(String user, LocalDate fechaNacimiento, Integer run, String area, String experienciaPrevia) {
+		super(user, fechaNacimiento, run);
 		this.area = area;
 		this.experienciaPrevia = experienciaPrevia;
 		
@@ -42,7 +44,7 @@ public class Administrativo extends Usuario{
 	
 	@Override
 	public String toString() {
-		return "Administrativo [Nombre : "+ getNombre()+ " area : "+ area + " Experiencia previa " + experienciaPrevia +  "]";
+		return "Administrativo [Nombre : "+ getUser()+ " area : "+ area + " Experiencia previa " + experienciaPrevia +  "]";
 	}
 	 
 }

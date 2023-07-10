@@ -35,6 +35,8 @@ public class ListarCapacitaciones extends HttpServlet {
 
 	        response.sendRedirect("Login.jsp");
 	    } else {
+	    	List<Capacitacion> listaCapacitacion = (List<Capacitacion>) request.getSession().getAttribute("listaCapacitacion");
+	   	 	request.setAttribute("listaCapacitacion", listaCapacitacion);
 	    	getServletContext().getRequestDispatcher("/ListarCapacitaciones.jsp").forward(request, response);
 	    }
 		
@@ -47,8 +49,7 @@ public class ListarCapacitaciones extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-	List<Capacitacion> listaCapacitacion = (List<Capacitacion>) request.getSession().getAttribute("listaCapacitacion");
-	 request.setAttribute("listaCapacitacion", listaCapacitacion);
+	
 	    	 
 		
 	

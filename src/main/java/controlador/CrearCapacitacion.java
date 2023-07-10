@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import modelo.Capacitacion;
+import modelo.Usuario;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,14 +36,13 @@ public class CrearCapacitacion extends HttpServlet {
 		HttpSession misesion = request.getSession(false);
 	    if (misesion == null || misesion.getAttribute("userLogin") == null) {
 	    
-	        response.sendRedirect("Login.jsp");
+	    	getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
 	    } else {
-	    	List <Capacitacion> listaCapacitacion = new ArrayList<>();
+	    	List<Capacitacion> listaCapacitacion = (List<Capacitacion>) misesion.getAttribute("listaCapacitacion");
+	    	 request.setAttribute("listaCapacitacion", listaCapacitacion);
+	    	 getServletContext().getRequestDispatcher("/CrearCapacitacion.jsp").forward(request, response);
 	    	
-			
-			misesion.setAttribute("listaCapacitacion", listaCapacitacion);
-			
-			response.sendRedirect("CrearCapacitacion.jsp");
+		
 	    }
 
 		
@@ -57,21 +57,31 @@ public class CrearCapacitacion extends HttpServlet {
 		
 		 HttpSession session = request.getSession(false);
 	      if (session == null || session.getAttribute("userLogin") == null) {
-	            response.sendRedirect("Login.jsp");
+	            response.sendRedirect("../vistas/Login.jsp");
 	        } else {
-	        	String identificador= request.getParameter("idCapacitacion");
-	        	String rutCliente = request.getParameter("rutCliente");
+	        	String identificadorString = request.getParameter("idCapacitacion");
+	        	Integer identificador = Integer.parseInt(identificadorString);
+	        	String rutClienteString = request.getParameter("rutCliente");
+	        	Integer rutCliente = Integer.parseInt(rutClienteString);
 	        	String dia  = request.getParameter("dia");
 	        	String hora  = request.getParameter("hora");
 	        	String lugar  = request.getParameter("lugar");
-	        	String duracion  = request.getParameter("duracion");
-	        	String cantidadAsistentes  = request.getParameter("cantidadAsistentes");
-	        	List <Capacitacion> listaCapacitacion = new ArrayList<>();
-	        	listaCapacitacion.add(new Capacitacion(identificador, rutCliente, dia, hora, lugar, duracion, cantidadAsistentes));
-		
+	        	String duracionString = request.getParameter("duracion");
+	        	Integer duracion = Integer.parseInt(duracionString);
+	        	String cantidadAsistentesString = request.getParameter("cantidadAsistentes");
+	        	Integer cantidadAsistentes = Integer.parseInt(cantidadAsistentesString);
+	        	
+	        	Capacitacion capacitacion = new Capacitacion(identificador, rutCliente, dia, hora, lugar, duracion, cantidadAsistentes);
+	        	List<Capacitacion> listaCapacitacion = (List<Capacitacion>) session.getAttribute("listaCapacitacion");
+	        	 if (listaCapacitacion == null) {
+	                 listaCapacitacion = new ArrayList<>();
+	             }
+	        	 listaCapacitacion.add(capacitacion);
 
-	        	session.setAttribute("listaCapacitacion", listaCapacitacion);
-	        	response.sendRedirect("ListarCapacitaciones.jsp");
+	             
+	             session.setAttribute("listaCapacitacion", listaCapacitacion);
+
+	             getServletContext().getRequestDispatcher("/ListarCapacitaciones.jsp").forward(request, response);
 	        }
 	}
 

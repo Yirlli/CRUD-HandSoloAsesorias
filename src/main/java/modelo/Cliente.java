@@ -1,16 +1,16 @@
 package modelo;
 
-
+import java.time.LocalDate;
 
 public class Cliente extends Usuario {
 	
-
+	private String nombres;
 	private String apellidos;
 	private Integer telefono;
 	private String afp;
-	private int sistemaDeSalud;
-	private String direccion;
-	private String comuna;
+	private Integer sistemaSalud;
+	private String direccionCliente;
+	private String comunaCliente;
 	private Integer edad;
 	
 
@@ -18,18 +18,28 @@ public class Cliente extends Usuario {
 		
 	}
 	
-	public Cliente(String nombre, String fechaNacimiento, Integer run, String apellidos, Integer telefono,  String afp, int sistemaDeSalud, String direccion, String comuna, Integer edad) {
-		super(nombre, fechaNacimiento, run);
+	public Cliente(String user, LocalDate fechaNacimiento, Integer run, String nombres,String apellidos, Integer telefono,  String afp, Integer sistemaSalud, String direccionCliente, String comunaCliente, Integer edad) {
+		super(user, fechaNacimiento, run);
+		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.telefono = telefono;
 		this.afp = afp;
-		this.sistemaDeSalud =sistemaDeSalud;
-		this.direccion = direccion;
-		this.comuna = comuna;
+		this.sistemaSalud =sistemaSalud;
+		this.direccionCliente = direccionCliente;
+		this.comunaCliente = comunaCliente;
 		this.edad = edad;
 	}
 
 
+	public String getNombres() {
+		return nombres;
+	}
+
+
+
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
+	}
 
 	public String getApellidos() {
 		return apellidos;
@@ -69,40 +79,40 @@ public class Cliente extends Usuario {
 
 
 
-	public int getSistemaDeSalud() {
-		return sistemaDeSalud;
+	public Integer getSistemaSalud() {
+		return sistemaSalud;
 	}
 
 
 
-	public void setSistemaDeSalud(int sistemaDeSalud) {
+	public void setSistemaSalud(Integer sistemaDeSalud) {
 		
-		this.sistemaDeSalud = sistemaDeSalud;
+		this.sistemaSalud = sistemaDeSalud;
 	}
 
 
 
 	public String getDireccion() {
-		return direccion;
+		return direccionCliente;
 	}
 
 
 
 	public void setDireccion(String direccion) {
 		
-		this.direccion = direccion;
+		this.direccionCliente = direccion;
 	}
 
 
 
 	public String getComuna() {
-		return comuna;
+		return comunaCliente;
 	}
 
 
 
 	public void setComuna(String comuna) {
-		this.comuna = comuna;
+		this.comunaCliente = comuna;
 	}
 
 
@@ -119,14 +129,14 @@ public class Cliente extends Usuario {
 	}
 
 	public String obtenerNombre() {
-		return "El nombre completo es :" +getNombre() + "" +apellidos;
+		return "El nombre completo es :" +getUser() + "" +apellidos;
 	}
 	
 	//con este metodo al ser el sistema de salud del tipo int (ingresando num solo 1 o 2) con las condicionales podemos retonar un valor especificado
 	 public String obtenerSistemaSalud() {
-	        if (sistemaDeSalud == 1) {
+	        if (sistemaSalud == 1) {
 	            return "Fonasa";
-	        } else if (sistemaDeSalud == 2) {
+	        } else if (sistemaSalud == 2) {
 	            return "Isapre";
 	        } else {
 	            return "Desconocido";
@@ -137,7 +147,7 @@ public class Cliente extends Usuario {
 	
 	@Override
 	public String toString() {
-		return "Cliente [Nombre " + getNombre() + "\nApellidos :" + apellidos + "\nRun " +getRun() +"\n"+ "\nTelefono : (+569) " + telefono + " \nAFP : " +obtenerSistemaSalud() + "]";
+		return "Cliente [Nombre " + getUser() + "\nApellidos :" + apellidos + "\nRun " +getRun() +"\n"+ "\nTelefono : (+569) " + telefono + " \nAFP : " +obtenerSistemaSalud() + "]";
 	}
 
 }

@@ -31,7 +31,7 @@ public class Contacto extends HttpServlet {
 		HttpSession misesion = request.getSession(false);
 	    if (misesion == null || misesion.getAttribute("userLogin") == null) {
 	        
-	        response.sendRedirect("Login.jsp");
+	    	getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
 	    } else {
 	    	getServletContext().getRequestDispatcher("/Contacto.jsp").forward(request, response);
 	    }
@@ -50,7 +50,7 @@ public class Contacto extends HttpServlet {
 		String tlf  = request.getParameter("tlfConsulta");
 		String email = request.getParameter("emailConsulta");
 		String  mensaje  = request.getParameter("mensaje");
-		response.sendRedirect("Contacto.jsp");
+		getServletContext().getRequestDispatcher("/Contacto.jsp").forward(request, response);
 	
 	}
 
