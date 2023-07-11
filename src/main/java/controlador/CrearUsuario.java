@@ -33,12 +33,12 @@ public class CrearUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession misesion = request.getSession(false);
-	    if (misesion == null || misesion.getAttribute("userLogin") == null) {
-	    	 getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+		HttpSession session = request.getSession(false);
+	    if (session == null || session.getAttribute("userLogin") == null) {
+	    	response.sendRedirect("Login.jsp");
 	    
 	    } else {
-	    	List<Usuario> listaUsuarios = (List<Usuario>) misesion.getAttribute("listaUsuarios");
+	    	List<Usuario> listaUsuarios = (List<Usuario>) session.getAttribute("listaUsuarios");
 	    	 request.setAttribute("listaUsuarios", listaUsuarios);
 
 			
@@ -105,10 +105,9 @@ public class CrearUsuario extends HttpServlet {
 	        Administrativo administrativo = new Administrativo(user, fechaNacimiento, run, area, experienciaPrevia);
 	        listaUsuarios.add(administrativo);
 	 
-	    
 	    }
-	    request.getSession().setAttribute("listaUsuarios", listaUsuarios);
-	    getServletContext().getRequestDispatcher("/ListarUsuario").forward(request, response);
+	    session.setAttribute("listaUsuarios", listaUsuarios);
+	    response.sendRedirect("ListarUsuario");
 	   
 	}
 	 

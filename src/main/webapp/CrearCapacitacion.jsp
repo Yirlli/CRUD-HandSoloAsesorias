@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="CSS/Style.css"/>
 <title>Formulario crear capacitacion</title>
@@ -15,22 +14,22 @@
 
 	<section class="fondo d-flex flex-column">
 		<section class="formCapacitacion"> 
-			<h1 class="text-center">Datos de la capacitación</h1>
+			<h1 class="text-center">Datos de la capacitaciÃ³n</h1>
 			<form action="CrearCapacitacion" method="POST" id="form" >
 				<div class="d-flex flex-column align-items-center">
 					<div class="idCapacitacion">
-						<label class="form-label">Número identificador:</label>
-						<input class="form-control" placeholder="Ingresa el n° de indetificador" type="number" name="idCapacitacion" id="idCapacitacion" required>
+						<label class="form-label">NÃºmero identificador:</label>
+						<input class="form-control" placeholder="Ingresa el nÂ° de indetificador" type="number" name="idCapacitacion" id="idCapacitacion" required>
 						<p class="msjError text-danger"></p>
 					</div>
 					<div class="rutCliente">
 						<label class="form-label">Rut del Cliente:</label>
-						<input  class="form-control" type="number"placeholder="Ingrese el Rut del cliente sin guión"name="rutCliente" id="rutCliente" required>
+						<input  class="form-control" type="number"placeholder="Ingrese el Rut del cliente sin guion"name="rutCliente" id="rutCliente" required>
 						<p class="msjError text-danger"></p>
 					</div>
 					<div class="dia">
-						<label class="form-label">Día: </label>
-						<input class="form-control" type="text" placeholder="Ingresa el día (lunes a domingo)" name="dia" id="dia">
+						<label class="form-label">DÃ­a: </label>
+						<input class="form-control" type="text" placeholder="Ingresa el dia (lunes a domingo)" name="dia" id="dia">
 						<p class="msjError text-danger"></p>
 					</div>
 					<div class="hora">
@@ -40,12 +39,12 @@
 					</div>
 					<div class="lugar">
 						<label class="form-label">Lugar:</label>
-						<input class="form-control" type="text" placeholder="Ingresa el lugar de la capacitación"name="lugar" id="lugar" required>
+						<input class="form-control" type="text" placeholder="Ingresa el lugar de la capacitacion"name="lugar" id="lugar" required>
 						<p class="msjError text-danger"></p>
 					</div>
 					<div class="duracion">
 						<label class="form-label">Duracion:</label>
-						<input class="form-control" type="number" placeholder="Ingresa la duración en horas" name="duracion" id="duracion">
+						<input class="form-control" type="number" placeholder="Ingresa la duraciÃ³n en horas" name="duracion" id="duracion">
 						<p class="msjError text-danger"></p>
 					</div>
 					<div class="cantidadAsistentes">
@@ -66,7 +65,7 @@
 		</section>
 	
 	<div class="volver">
-				<a href="Index.jsp">Volver a página de inicio</a>
+				<a href="Index.jsp">Volver a pÃ¡gina de inicio</a>
 			</div>
 	
 	</section>

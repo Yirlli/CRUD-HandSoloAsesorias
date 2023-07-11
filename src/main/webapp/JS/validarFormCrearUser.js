@@ -98,13 +98,13 @@ document.addEventListener('DOMContentLoaded', function() {
   		cancelButtonText: 'Mostrar lista de usuarios',
 		}).then((result) => {
   			if (result.isConfirmed) {
-  			form.submit();
         	location.href = 'CrearUsuario';
-      		} else {
-      		form.submit();
+      		} 
+      		else {
         	location.href = 'ListarUsuario';
-  			}
-		});
+      		}
+      		form.submit();
+    		});
     }
   });
 });

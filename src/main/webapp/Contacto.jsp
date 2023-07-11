@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="CSS/Style.css"/>
 <title> Formuluario de Contacto</title>
@@ -25,7 +25,7 @@
 					<input  class="form-control" placeholder="Apellido de contacto" type="text" name="apellidoConsulta">
 				</div>
 				<div>
-					<label class="form-label">Teléfono: </label>
+					<label class="form-label">TelÃ©fono: </label>
 					<input class="form-control" placeholder="(+569)" type="number" name="tlfConsulta">
 				</div>
 				<div>
@@ -36,10 +36,13 @@
 					<label class="form-label">Mensaje: </label>
 					<textarea class="form-control" placeholder="ingrese su texto aqui "type="text" name="mensaje"></textarea>
 				</div>
-				<button class="btn" type="submit">Enviar</button>
+				<div class="d-flex justify-content-center"> 
+					<button class="btn" type="submit">Enviar</button>
+				</div>
+				
 			</form>
-			<div class="volver">
-				<a href="Index.jsp">Volver a página de inicio</a>
+			<div class="volver d-flex justify-content-center">
+				<a href="Index.jsp">Volver a pÃ¡gina de inicio</a>
 			</div>
 		
 		</section>

@@ -30,12 +30,13 @@ public class ListarCapacitaciones extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession misesion = request.getSession(false);
-	    if (misesion == null || misesion.getAttribute("userLogin") == null) {
+		HttpSession session = request.getSession(false);
+	    if (session == null || session.getAttribute("userLogin") == null) {
 
-	        response.sendRedirect("Login.jsp");
+	    	response.sendRedirect("Login.jsp");
+	    	
 	    } else {
-	    	List<Capacitacion> listaCapacitacion = (List<Capacitacion>) request.getSession().getAttribute("listaCapacitacion");
+	    	List<Capacitacion> listaCapacitacion = (List<Capacitacion>) session.getAttribute("listaCapacitacion");
 	   	 	request.setAttribute("listaCapacitacion", listaCapacitacion);
 	    	getServletContext().getRequestDispatcher("/ListarCapacitaciones.jsp").forward(request, response);
 	    }

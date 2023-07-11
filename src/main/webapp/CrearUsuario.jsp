@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +14,7 @@
 			<h1>Datos del Usuario</h1>
 			<form action="CrearUsuario" method="POST" id="form" >
 				<div class="nombreUsuario">
-					<label class="form-label" for="nombreUsuario">Nombre de usuario(para el inicio de sesión):</label>
+					<label class="form-label" for="nombreUsuario">Nombre de usuario(para el inicio de sesiÃ³n):</label>
 					<input class="form-control" placeholder="Ingresa su nombre" type="text" name="nombreUsuario" id="nombreUsuario">
 					<p class="msjError text-danger"></p>
 				</div>
@@ -30,7 +29,7 @@
 					<p class="msjError text-danger"></p>
 				</div>
 				<div class="d-flex flex-column">
-					<label class="form-label">Seleccione el tipo de usuario según su perfil: </label>
+					<label class="form-label">Seleccione el tipo de usuario segÃºn su perfil: </label>
 					<select id="tipoUsuario" name="tipoUsuario">	
 						<option value="despliegue" selected>Despliegue las opciones</option>
 						<option value="Administrativo">Administrativo</option>
@@ -59,7 +58,7 @@
 			
 			</form>
 			<div class="volver">
-				<a href="Index.jsp">Volver a página de inicio</a>
+				<a href="Index.jsp">Volver a pÃ¡gina de inicio</a>
 			</div>
 	
 	</section>

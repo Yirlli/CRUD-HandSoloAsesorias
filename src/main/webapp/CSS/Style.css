@@ -1,4 +1,4 @@
-@charset "ISO-8859-1";
+@charset "UTF-8";
 
 *{
 	margin: 0;
@@ -10,11 +10,7 @@
 }
 .fondo{
 background-color: rgb(115, 115, 255);
-	padding: 2rem;
-	align-items: center;
-	
-	justify-content: center;
-	
+
 }
 .formCapacitacion{
 	margin-top: 4rem;
@@ -30,10 +26,9 @@ form{
 	width: 30vw;
 }
 
-.formCapacitacion .btn, .verDatosCapacitacion  {
+.formCapacitacion .btn,  {
 	background-color: rgb(129, 201, 193);
 	margin-top: 2rem;
-	width: 20vw;
 	margin-right: 5rem;
 	margin-bottom: 3rem;
 
@@ -66,9 +61,6 @@ form{
 .form-label{
 	font-weight: bold;
 	padding: 0.25rem;
-}
-.btn{
-	border: black;
 }
 
 

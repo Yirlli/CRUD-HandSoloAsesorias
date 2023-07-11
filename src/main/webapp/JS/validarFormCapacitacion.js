@@ -9,17 +9,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const cantidadAsistentes = document.getElementById('cantidadAsistentes');
   const listInputs = document.querySelectorAll('.form-control');
 
-  function validarForm() {
-    listInputs.forEach(element => {
-      if (element && element.parentElement.querySelector('.msjError')) {
-        element.parentElement.querySelector('.msjError').innerHTML = '';
-      }
-    });
+	function validarForm() {
+		listInputs.forEach(element => {
+			if (element && element.parentElement.querySelector('.msjError')) {
+       		element.parentElement.querySelector('.msjError').innerHTML = '';
+      		}
+    	});
 
 
-    if (idCapacitacion.value.trim() === '' || isNaN(idCapacitacion.value)) {
-      mostrarMensajeError(idCapacitacion, "Campo Obligatorio, ingrese un numero de identificacion");
-     return false;
+	if (idCapacitacion.value.trim() === '' || isNaN(idCapacitacion.value)) {
+	mostrarMensajeError(idCapacitacion, "Campo Obligatorio, ingrese un numero de identificacion");
+    	return false;
     }
 
     if (rutCliente.value.trim() === '' || isNaN(rutCliente.value)) {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const diasPermitidos = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
 
     if (dia.value.trim() === '' || !diasPermitidos.includes(diaValue)) {
-      mostrarMensajeError(dia, "Por favor, ingrese un día válido, comprendido entre lunes a domingo");
+      mostrarMensajeError(dia, "Por favor, ingrese un dia valido, comprendido entre lunes a domingo");
      return false;
     }
 
@@ -49,45 +49,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (duracion.value.trim() === "" || !Number.isInteger(parseInt(duracion.value))) {
-      mostrarMensajeError(duracion, "Campo invalido, debe contener un número entero");
+      mostrarMensajeError(duracion, "Campo invalido, debe contener un numero entero");
       return false;
     }
 
     if (cantidadAsistentes.value.trim() === "" || !Number.isInteger(parseInt(cantidadAsistentes.value))) {
-      mostrarMensajeError(cantidadAsistentes, "Campo invalido, debe contener un número entero");
+      mostrarMensajeError(cantidadAsistentes, "Campo invalido, debe contener un numero entero");
      return false;
     }
 
     return true;
   }
 
-  function mostrarMensajeError(elemento, mensaje) {
-    const contenedor = elemento.parentElement;
+	function mostrarMensajeError(elemento, mensaje) {
+	const contenedor = elemento.parentElement;
     const mensajeError = contenedor.querySelector('.msjError');
     if (mensajeError) {
-      mensajeError.innerHTML = mensaje;
+    mensajeError.innerHTML = mensaje;
     }
   }
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
 
-    if (validarForm()) {
-      Swal.fire({
-        title: 'Capacitacion creada satisfactoriamente!',
-        icon: 'success',
-        showCancelButton: true,
-        confirmButtonText: 'Crear otra capacitacion',
-        cancelButtonText: 'Mostrar lista de capacitaciones',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          form.submit();
-          location.href = 'CrearCapacitacion';
-        } else {
-          form.submit();
-          location.href = 'ListarCapacitaciones';
-        }
-      });
-    }
-  });
+		if (validarForm()) {
+    		Swal.fire({
+      		title: 'Capacitacion creada satisfactoriamente!',
+      		icon: 'success',
+      		showCancelButton: true,
+      		confirmButtonText: 'Crear otra capacitacion',
+      		cancelButtonText: 'Mostrar lista de capacitaciones',
+    		}).then((result) => {
+      			if (result.isConfirmed) {
+        		location.href = 'CrearCapacitacion';
+      			} 
+      			else {
+        		location.href = 'ListarCapacitaciones';
+      			}
+      			form.submit();
+    			});
+  			}	
+ 	});
 });

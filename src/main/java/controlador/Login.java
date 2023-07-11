@@ -42,7 +42,7 @@ public class Login extends HttpServlet {
 			HttpSession misesion = request.getSession();
 			misesion.setAttribute("userLogin", usuario);
 			
-			getServletContext().getRequestDispatcher("/vista/Contacto.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/Contacto.jsp").forward(request, response);
 			}else {
 				getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
 				}

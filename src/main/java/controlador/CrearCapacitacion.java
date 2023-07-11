@@ -33,12 +33,12 @@ public class CrearCapacitacion extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		HttpSession misesion = request.getSession(false);
-	    if (misesion == null || misesion.getAttribute("userLogin") == null) {
+		HttpSession session = request.getSession(false);
+	    if (session == null || session.getAttribute("userLogin") == null) {
 	    
 	    	getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
 	    } else {
-	    	List<Capacitacion> listaCapacitacion = (List<Capacitacion>) misesion.getAttribute("listaCapacitacion");
+	    	List<Capacitacion> listaCapacitacion = (List<Capacitacion>) session.getAttribute("listaCapacitacion");
 	    	 request.setAttribute("listaCapacitacion", listaCapacitacion);
 	    	 getServletContext().getRequestDispatcher("/CrearCapacitacion.jsp").forward(request, response);
 	    	
@@ -57,7 +57,7 @@ public class CrearCapacitacion extends HttpServlet {
 		
 		 HttpSession session = request.getSession(false);
 	      if (session == null || session.getAttribute("userLogin") == null) {
-	            response.sendRedirect("../vistas/Login.jsp");
+	    	  response.sendRedirect("Login.jsp");
 	        } else {
 	        	String identificadorString = request.getParameter("idCapacitacion");
 	        	Integer identificador = Integer.parseInt(identificadorString);
@@ -80,7 +80,7 @@ public class CrearCapacitacion extends HttpServlet {
 
 	             
 	             session.setAttribute("listaCapacitacion", listaCapacitacion);
-
+	             System.out.println(listaCapacitacion);
 	             getServletContext().getRequestDispatcher("/ListarCapacitaciones.jsp").forward(request, response);
 	        }
 	}

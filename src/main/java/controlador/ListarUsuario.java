@@ -34,12 +34,12 @@ public class ListarUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession misesion = request.getSession(false);
-	    if (misesion == null || misesion.getAttribute("userLogin") == null) {
+		HttpSession session = request.getSession(false);
+	    if (session == null || session.getAttribute("userLogin") == null) {
 
 	        response.sendRedirect("Login.jsp");
 	    } else {
-	    	List<Usuario> listaUsuarios = (List<Usuario>) request.getAttribute("listaUsuarios");
+	    	List<Usuario> listaUsuarios = (List<Usuario>) session.getAttribute("listaUsuarios");
 	        request.setAttribute("listaUsuarios", listaUsuarios);
 	        getServletContext().getRequestDispatcher("/ListarUsuario.jsp").forward(request, response);
 	    }
