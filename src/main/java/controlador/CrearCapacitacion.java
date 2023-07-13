@@ -12,6 +12,8 @@ import modelo.Usuario;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import implementacion.ImpCapacitacion;
+import interfaces.InterCapacitacion;
 
 /**
  * Servlet implementation class CrearCapacitacion
@@ -38,8 +40,12 @@ public class CrearCapacitacion extends HttpServlet {
 	    
 	    	getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
 	    } else {
-	    	List<Capacitacion> listaCapacitacion = (List<Capacitacion>) session.getAttribute("listaCapacitacion");
-	    	 request.setAttribute("listaCapacitacion", listaCapacitacion);
+	    	InterCapacitacion capacitacionImpl = new ImpCapacitacion();
+            List<Capacitacion> listaCapacitacion = capacitacionImpl.mostrarCapacitacion();
+            if (listaCapacitacion == null) {
+                listaCapacitacion = new ArrayList<>();
+            }
+            request.setAttribute("listaCapacitacion", listaCapacitacion);
 	    	 getServletContext().getRequestDispatcher("/CrearCapacitacion.jsp").forward(request, response);
 	    	
 		
@@ -72,16 +78,17 @@ public class CrearCapacitacion extends HttpServlet {
 	        	Integer cantidadAsistentes = Integer.parseInt(cantidadAsistentesString);
 	        	
 	        	Capacitacion capacitacion = new Capacitacion(identificador, rutCliente, dia, hora, lugar, duracion, cantidadAsistentes);
-	        	List<Capacitacion> listaCapacitacion = (List<Capacitacion>) session.getAttribute("listaCapacitacion");
-	        	 if (listaCapacitacion == null) {
-	                 listaCapacitacion = new ArrayList<>();
-	             }
-	        	 listaCapacitacion.add(capacitacion);
+	        	InterCapacitacion capacitacionImpl = new ImpCapacitacion();
+	        	capacitacionImpl.registrarCapacitacion(capacitacion);
+	        	List<Capacitacion> listaCapacitacion = capacitacionImpl.mostrarCapacitacion();
+	            if (listaCapacitacion == null) {
+	                listaCapacitacion = new ArrayList<>();
+	            }
+	            listaCapacitacion.add(capacitacion);
 
-	             
-	             session.setAttribute("listaCapacitacion", listaCapacitacion);
-	             System.out.println(listaCapacitacion);
-	             getServletContext().getRequestDispatcher("/ListarCapacitaciones.jsp").forward(request, response);
+	            session.setAttribute("listaCapacitacion", listaCapacitacion);
+	        	 
+	             getServletContext().getRequestDispatcher("/CapacitacionSatisfactorio.jsp").forward(request, response);
 	        }
 	}
 

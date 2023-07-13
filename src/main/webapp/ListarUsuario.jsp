@@ -20,7 +20,7 @@
  		<jsp:include page="Menu.jsp" />
 	</header>
 	
-	<section class="fondo d-flex  container-fluid">
+	<section class="fondo d-flex  container-fluid vh-100">
 			<div class="listaUsuarios">
 				<h2>Lista de Usuarios</h2>
 				<c:forEach var="usuario" items="${listaUsuarios}">

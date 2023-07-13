@@ -74,18 +74,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		if (validarForm()) {
     		Swal.fire({
-      		title: 'Capacitacion creada satisfactoriamente!',
+      		title: 'Esta seguro que los datos ingresadas son correctos?',
       		icon: 'success',
       		showCancelButton: true,
-      		confirmButtonText: 'Crear otra capacitacion',
-      		cancelButtonText: 'Mostrar lista de capacitaciones',
+      		confirmButtonText: 'Si, enviar',
+    
     		}).then((result) => {
       			if (result.isConfirmed) {
-        		location.href = 'CrearCapacitacion';
+        		location.href = 'CapacitacionSatisfactorio.jsp';
       			} 
-      			else {
-        		location.href = 'ListarCapacitaciones';
-      			}
+  
       			form.submit();
     			});
   			}	

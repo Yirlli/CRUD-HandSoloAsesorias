@@ -10,7 +10,8 @@ import modelo.Capacitacion;
 
 import java.io.IOException;
 import java.util.*;
-
+import implementacion.ImpCapacitacion;
+import interfaces.InterCapacitacion;
 /**
  * Servlet implementation class ListarCapacitaciones
  */
@@ -33,10 +34,13 @@ public class ListarCapacitaciones extends HttpServlet {
 		HttpSession session = request.getSession(false);
 	    if (session == null || session.getAttribute("userLogin") == null) {
 
-	    	response.sendRedirect("Login.jsp");
+	    	getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
 	    	
 	    } else {
-	    	List<Capacitacion> listaCapacitacion = (List<Capacitacion>) session.getAttribute("listaCapacitacion");
+	    	InterCapacitacion capacitacionImpl = new ImpCapacitacion();
+	        List<Capacitacion> listaCapacitacion = capacitacionImpl.mostrarCapacitacion();
+	        System.out.println("Lista de capacitaciones: " + listaCapacitacion);
+
 	   	 	request.setAttribute("listaCapacitacion", listaCapacitacion);
 	    	getServletContext().getRequestDispatcher("/ListarCapacitaciones.jsp").forward(request, response);
 	    }

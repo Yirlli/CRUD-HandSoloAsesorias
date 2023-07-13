@@ -1,53 +1,31 @@
-@charset "UTF-8";
+@charset "ISO-8859-1";
+
 
 *{
-	margin: 0;
-	padding: 0;
-
+margin: 0;
+padding: 0;
+}
+/*NAVBAR*/
 .navbar{
 	background-color: rgb(115, 115, 255);
 }
-}
+
+
+/*GENERALES*/
 .fondo{
 background-color: rgb(115, 115, 255);
 
 }
-.formCapacitacion{
-	margin-top: 4rem;
 
-	
-}
 
-form{
-	margin-top: 4rem;
-}
+/*INDEX*/
 
-.formCapacitacion input{
-	width: 30vw;
-}
 
-.formCapacitacion .btn,  {
-	background-color: rgb(129, 201, 193);
-	margin-top: 2rem;
-	margin-right: 5rem;
-	margin-bottom: 3rem;
-
-}
-
-.formLogin .btn{
-		background-color: rgb(129, 201, 193);
-	margin-top: 2rem;
-	width: 12vw;
-	margin-right: 5rem;
-	margin-bottom: 3rem;
-
-}
 .fondoMain{
-	background-image: url(https://images.unsplash.com/photo-1681142991637-32418d80f55c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80);
-	background-size: contain;
-	height: 50vh;
-	
-	margin-top: 5rem;
+background-image: url(https://images.unsplash.com/photo-1681142991637-32418d80f55c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80);
+background-size: contain;
+height: 50vh;
+margin-top: 5rem;
 	
 }
 
@@ -58,31 +36,11 @@ form{
 	
 }
 
-.form-label{
-	font-weight: bold;
-	padding: 0.25rem;
-}
-
-
-
-.volver{
-	margin-top: 3rem
-}
-
-.tituloContacto{
-	text-align: center
-}
-
 .opciones{
 	background-color: rgb(115, 115, 255);
 }
-
-a{
-		text-decoration: none;
-color:black;
-}
-
-.opciones .btn{
+/* botones*/
+.opciones .btn {
 	margin-top: 2rem;
 	background-color: rgb(129, 201, 193);
 	width: 30vw;
@@ -99,14 +57,82 @@ color:black;
 	padding: 2rem;
 }
 
+.opciones .btn a{
+text-decoration: none;
+color:black;
+}
+
+
+/*generales formularios */
+.formCapacitacion{
+	margin-top: 4rem;
+}
+
+
+ body .fondo .volver a{
+text-decoration: none;
+color:black;
+	
+}
+
+form{
+	margin-top: 4rem;
+}
+
+.formCapacitacion form input{
+	width: 30vw;
+}
+
+.formCapacitacion form .nombreConsulta input{
+	width: 30vw;
+}
+
+.fondo .formCapacitacion  form .botones .btn {
+	background-color: rgb(129, 201, 193);
+	margin-right: 5rem;
+	width: 15vw;
+
+}
+
+.formLogin .btn{
+	background-color: rgb(129, 201, 193);
+	margin-top: 2rem;
+	width: 12vw;
+	margin-right: 5rem;
+	margin-bottom: 3rem;
+
+}
+
+
+.form-label{
+font-weight: bold;
+padding: 0.25rem;
+}
+
+/*form tipo usuario*/
+
+form #tipoUsuario{
+	width: 30vw;
+}
+
+
+.tituloContacto{
+	text-align: center
+}
+
+
+a{
+text-decoration: none;
+color:black;
+}
+
+
+
 .tituLogin{text-align: center}
 .cierre .btn{
 	border:none;
 	background-color: rgb(115, 115, 255);
 	margin-top: -1rem;
-}
-form #tipoUsuario{
-	width: 30vw;
 }
 
 .fondoUser h3{
@@ -200,4 +226,4 @@ form #tipoUsuario{
 		}
 		
 		
-}
+

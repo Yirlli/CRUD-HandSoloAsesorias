@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.List;
+
 public class Capacitacion {
 	private Integer identificador;
 	private Integer rutCliente;
@@ -8,6 +10,7 @@ public class Capacitacion {
 	private String lugar;
 	private Integer duracion;
 	private Integer cantidadAsistentes;
+	private List <Capacitacion>crearCapacitacion;
 
 	
 	
@@ -96,6 +99,9 @@ public class Capacitacion {
 	public void setCantidadAsistentes(Integer cantidadAsistentes) {
 		this.cantidadAsistentes = cantidadAsistentes;
 	}
+
+
+	
 
 	
 	

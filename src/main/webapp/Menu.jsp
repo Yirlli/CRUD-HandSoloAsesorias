@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="CSS/Style.css"/>
 <title>menu</title>
@@ -32,12 +33,12 @@
               Cuenta
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="Login">Inicia SesiÃ³n</a></li>
+              <li><a class="dropdown-item" href="Login">Inicia Sesión</a></li>
               <li><a class="dropdown-item" href="CrearUsuario">Crear Usuario</a></li>
             </ul>
           </li>
            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="CerrarSession">Cerrar SesiÃ³n</a>
+            <a class="nav-link active" aria-current="page" href="CerrarSession">Cerrar Sesión</a>
           </li>
            
         </ul>
