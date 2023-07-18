@@ -11,7 +11,10 @@ import modelo.Capacitacion;
 import java.io.IOException;
 import java.util.*;
 import implementacion.ImpCapacitacion;
-import interfaces.InterCapacitacion;
+import interfaces.Crud;
+import dao.CapacitacionDAO;
+import dto.CapacitacionDTO;
+
 /**
  * Servlet implementation class ListarCapacitaciones
  */
@@ -32,18 +35,14 @@ public class ListarCapacitaciones extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(false);
-	    if (session == null || session.getAttribute("userLogin") == null) {
-
-	    	getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
-	    	
-	    } else {
-	    	InterCapacitacion capacitacionImpl = new ImpCapacitacion();
-	        List<Capacitacion> listaCapacitacion = capacitacionImpl.mostrarCapacitacion();
-	        System.out.println("Lista de capacitaciones: " + listaCapacitacion);
-
-	   	 	request.setAttribute("listaCapacitacion", listaCapacitacion);
-	    	getServletContext().getRequestDispatcher("/ListarCapacitaciones.jsp").forward(request, response);
-	    }
+        if (session == null || session.getAttribute("userLogin") == null) {
+            getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+        } else {
+            CapacitacionDAO capacitacionDAO = new CapacitacionDAO();
+            List<CapacitacionDTO> listaCapacitacion = capacitacionDAO.readAll();
+            request.setAttribute("listaCapacitacion", listaCapacitacion);
+            getServletContext().getRequestDispatcher("/ListarCapacitaciones.jsp").forward(request, response);
+        }
 		
 	}
 

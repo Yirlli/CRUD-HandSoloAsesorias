@@ -12,8 +12,11 @@ import modelo.Usuario;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import implementacion.ImpCapacitacion;
-import interfaces.InterCapacitacion;
+
+import interfaces.Crud;
+import dao.CapacitacionDAO;
+import dto.CapacitacionDTO;
+
 
 /**
  * Servlet implementation class CrearCapacitacion
@@ -35,19 +38,17 @@ public class CrearCapacitacion extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		HttpSession session = request.getSession(false);
-	    if (session == null || session.getAttribute("userLogin") == null) {
-	    
-	    	getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
-	    } else {
-	    	InterCapacitacion capacitacionImpl = new ImpCapacitacion();
-            List<Capacitacion> listaCapacitacion = capacitacionImpl.mostrarCapacitacion();
-            if (listaCapacitacion == null) {
-                listaCapacitacion = new ArrayList<>();
-            }
-            request.setAttribute("listaCapacitacion", listaCapacitacion);
-	    	 getServletContext().getRequestDispatcher("/CrearCapacitacion.jsp").forward(request, response);
-	    	
+		  HttpSession session = request.getSession(false);
+	        if (session == null || session.getAttribute("userLogin") == null) {
+	            getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+	        } else {
+	            CapacitacionDAO capacitacionDAO = new CapacitacionDAO();
+	            List<CapacitacionDTO> listaCapacitaciones = capacitacionDAO.readAll();
+	            if (listaCapacitaciones == null) {
+	                listaCapacitaciones = new ArrayList<>();
+	            }
+	            request.setAttribute("listaCapacitaciones", listaCapacitaciones);
+	            getServletContext().getRequestDispatcher("/CrearCapacitacion.jsp").forward(request, response);
 		
 	    }
 
@@ -61,34 +62,32 @@ public class CrearCapacitacion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		 HttpSession session = request.getSession(false);
-	      if (session == null || session.getAttribute("userLogin") == null) {
-	    	  response.sendRedirect("Login.jsp");
-	        } else {
-	        	String identificadorString = request.getParameter("idCapacitacion");
-	        	Integer identificador = Integer.parseInt(identificadorString);
-	        	String rutClienteString = request.getParameter("rutCliente");
-	        	Integer rutCliente = Integer.parseInt(rutClienteString);
-	        	String dia  = request.getParameter("dia");
-	        	String hora  = request.getParameter("hora");
-	        	String lugar  = request.getParameter("lugar");
-	        	String duracionString = request.getParameter("duracion");
-	        	Integer duracion = Integer.parseInt(duracionString);
-	        	String cantidadAsistentesString = request.getParameter("cantidadAsistentes");
-	        	Integer cantidadAsistentes = Integer.parseInt(cantidadAsistentesString);
-	        	
-	        	Capacitacion capacitacion = new Capacitacion(identificador, rutCliente, dia, hora, lugar, duracion, cantidadAsistentes);
-	        	InterCapacitacion capacitacionImpl = new ImpCapacitacion();
-	        	capacitacionImpl.registrarCapacitacion(capacitacion);
-	        	List<Capacitacion> listaCapacitacion = capacitacionImpl.mostrarCapacitacion();
-	            if (listaCapacitacion == null) {
-	                listaCapacitacion = new ArrayList<>();
-	            }
-	            listaCapacitacion.add(capacitacion);
+		HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("userLogin") == null) {
+            response.sendRedirect("Login.jsp");
+        } else {
+           /* String identificadorString = request.getParameter("idCapacitacion");
+            Integer identificador = Integer.parseInt(identificadorString);
+            String rutClienteString = request.getParameter("rutCliente");
+            Integer rutCliente = Integer.parseInt(rutClienteString);
+            String dia = request.getParameter("dia");
+            String hora = request.getParameter("hora");
+            String lugar = request.getParameter("lugar");
+            String duracionString = request.getParameter("duracion");
+            Integer duracion = Integer.parseInt(duracionString);
+            String cantidadAsistentesString = request.getParameter("cantidadAsistentes");
+            Integer cantidadAsistentes = Integer.parseInt(cantidadAsistentesString);*/
+        	
+        	String nombre=request.getParameter("nombre");
+        	String detalle = request.getParameter("detalle");
+        	String idString = request.getParameter("id");
+            Integer id = Integer.parseInt(idString);
 
-	            session.setAttribute("listaCapacitacion", listaCapacitacion);
-	        	 
-	             getServletContext().getRequestDispatcher("/CapacitacionSatisfactorio.jsp").forward(request, response);
+            CapacitacionDTO capacitacion = new CapacitacionDTO(id,nombre, detalle);
+            CapacitacionDAO capacitacionDAO = new CapacitacionDAO();
+            capacitacionDAO.create(capacitacion);
+
+            response.sendRedirect("CapacitacionSatisfactorio.jsp");
 	        }
 	}
 

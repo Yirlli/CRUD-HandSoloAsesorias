@@ -18,7 +18,7 @@
 			<h1 class="text-center">Datos de la capacitación</h1>
 			<form action="CrearCapacitacion" method="POST" id="form" >
 				<div class="d-flex flex-column align-items-center">
-					<div class="idCapacitacion">
+					<!--  <div class="idCapacitacion">
 						<label class="form-label">Número identificador:</label>
 						<input class="form-control" placeholder="Ingresa el n° de indetificador" type="number" name="idCapacitacion" id="idCapacitacion" required>
 						<p class="msjError text-danger"></p>
@@ -52,7 +52,23 @@
 						<label class="form-label">Cantidad de asistentes:</label>
 						<input class="form-control" type="number" placeholder="Ingresa la cantidad de asistentes" name="cantidadAsistentes" id="cantidadAsistentes" required>
 						<p class="msjError text-danger"></p>
+					</div>-->
+					<div class="idCapacitacion">
+						<label class="form-label">Id</label>
+						<input  class="form-control" type="number"placeholder="Ingrese el Id"name="rutCliente" id="id" required>
+						<p class="msjError text-danger"></p>
 					</div>
+					<div class="dia">
+						<label class="form-label">Nombre </label>
+						<input class="form-control" type="text" placeholder="Ingresa el nombre" name="nombre" id="nombre">
+						<p class="msjError text-danger"></p>
+					</div>
+					<div class="hora">
+						<label class="form-label">Detalle </label>
+						<input class="form-control" type="text"  placeholder="Ingresa el detalle" name="detalle" id="detalle">
+						<p class="msjError text-danger"></p>
+					</div>
+					
 				</div>
 			
 				
@@ -74,7 +90,7 @@
 	
 	
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="JS/validarFormCapacitacion.js"></script>
+	
 
 </body>
 </html>
