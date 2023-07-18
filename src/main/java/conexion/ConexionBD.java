@@ -10,9 +10,9 @@ import dao.CapacitacionDAO;
 
 public class ConexionBD {
 	
-	public static final String PASSWORD = "XXXXX";
-	public static final String URL = "jdbc:mysql://localhost:3306/XXX";
-	public static final String USER = "XXX";
+	public static final String PASSWORD = "Choco323*";
+	public static final String URL = "jdbc:mysql://localhost:3306/handsolo";
+	public static final String USER = "root";
 	
 	private static ConexionBD instance;
 	private Connection conexion;

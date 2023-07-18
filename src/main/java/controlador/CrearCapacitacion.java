@@ -78,14 +78,13 @@ public class CrearCapacitacion extends HttpServlet {
             String cantidadAsistentesString = request.getParameter("cantidadAsistentes");
             Integer cantidadAsistentes = Integer.parseInt(cantidadAsistentesString);*/
         	
-        	String nombre=request.getParameter("nombre");
-        	String detalle = request.getParameter("detalle");
-        	String idString = request.getParameter("id");
-            Integer id = Integer.parseInt(idString);
-
-            CapacitacionDTO capacitacion = new CapacitacionDTO(id,nombre, detalle);
+        	CapacitacionDTO capacitacion = new CapacitacionDTO();
+        	capacitacion.setNombre(request.getParameter("nombre"));
+        	capacitacion.setDetalle(request.getParameter("detalle"));
+        
             CapacitacionDAO capacitacionDAO = new CapacitacionDAO();
             capacitacionDAO.create(capacitacion);
+            int idGenerado = capacitacion.getId();
 
             response.sendRedirect("CapacitacionSatisfactorio.jsp");
 	        }

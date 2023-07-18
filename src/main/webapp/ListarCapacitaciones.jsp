@@ -20,13 +20,10 @@
         <section class="fondo d-flex container-fluid justify-content-center p-5">
             <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
                 <div class="container-fluid">
-                    <p><b>Identificador N°:</b> ${capacitacion.identificador}</p>
-					<p><b>Rut del cliente:</b> ${capacitacion.rutCliente}</p>
-					<p><b>Día:</b> ${capacitacion.dia}</p>
-					<p><b>Hora:</b> ${capacitacion.hora}</p>
-					<p><b>Lugar:</b> ${capacitacion.lugar}</p>
-					<p><b>Duración:</b> ${capacitacion.duracion} minutos</p>
-					<p><b>Cantidad de asistentes:</b> ${capacitacion.cantidadAsistentes}</p>
+                    <p><b>Identificador N°:</b> ${capacitacion.id}</p>
+                    <p><b>Nombre:</b> ${capacitacion.nombre}</p>
+                    <p><b>Detalle:</b> ${capacitacion.detalle}</p>
+					
                 </div>
             </div>
         </section>

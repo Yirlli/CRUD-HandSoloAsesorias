@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.sql.Statement;
 import conexion.ConexionBD;
 import dto.CapacitacionDTO;
 import interfaces.Crud;
@@ -53,13 +53,14 @@ public class CapacitacionDAO implements Crud<CapacitacionDTO>{
 	public void create(CapacitacionDTO c) {
 		// TODO Auto-generated method stub
 		PreparedStatement ps;
+		 ResultSet generatedKeys;
 		try{
-		ps = conexion.getConexion().prepareStatement(SQL_INSERT);
+		ps = conexion.getConexion().prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
 		ps.setString(1, c.getNombre());
 		ps.setString(2, c.getDetalle());
 		ps.executeUpdate();
 		
-		 ResultSet generatedKeys = ps.getGeneratedKeys();
+		 generatedKeys = ps.getGeneratedKeys();
          if (generatedKeys.next()) {
              int idGenerado = generatedKeys.getInt(1);
              c.setId(idGenerado);

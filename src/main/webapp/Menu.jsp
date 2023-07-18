@@ -20,8 +20,14 @@
           <li class="nav-item ">
             <a class="nav-link active" aria-current="page" href="CrearCapacitacion">Crear Capacitacion</a>
           </li>
+          <li class="nav-item ">
+            <a class="nav-link active" aria-current="page" href="ListarCapacitaciones">Lista de Capacitaciones</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="CrearUsuario">Crear Usuario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="ListarUsuario">Lista de Usuario</a>
           </li>
            <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="Contacto">Contacto</a>

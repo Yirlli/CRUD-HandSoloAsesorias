@@ -53,11 +53,8 @@
 						<input class="form-control" type="number" placeholder="Ingresa la cantidad de asistentes" name="cantidadAsistentes" id="cantidadAsistentes" required>
 						<p class="msjError text-danger"></p>
 					</div>-->
-					<div class="idCapacitacion">
-						<label class="form-label">Id</label>
-						<input  class="form-control" type="number"placeholder="Ingrese el Id"name="rutCliente" id="id" required>
-						<p class="msjError text-danger"></p>
-					</div>
+					
+					
 					<div class="dia">
 						<label class="form-label">Nombre </label>
 						<input class="form-control" type="text" placeholder="Ingresa el nombre" name="nombre" id="nombre">
