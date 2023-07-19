@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+import dao.ProfesionalDAO;
 /**
  * Servlet implementation class EliminarProfesional
  */
@@ -34,7 +34,15 @@ public class EliminarProfesional extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		int idProfesional = Integer.parseInt(request.getParameter("idProfesional"));
+
+        ProfesionalDAO profesionalDAO = new ProfesionalDAO();
+
+        if (profesionalDAO.delete(idProfesional)) {
+            response.sendRedirect("ListarProfesionales"); // Redirigir a la página que muestra la lista de profesionales actualizada.
+        } else {
+            response.sendRedirect("error.jsp"); // Redirigir a una página de error si la eliminación falla.
+        }
 	}
 
 }

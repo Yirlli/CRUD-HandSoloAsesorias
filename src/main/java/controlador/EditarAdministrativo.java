@@ -5,7 +5,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modelo.Administrativo;
+
 import java.io.IOException;
+
+import dao.AdministrativoDAO;
 
 /**
  * Servlet implementation class EditarAdministrativo
@@ -34,7 +38,18 @@ public class EditarAdministrativo extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String area = request.getParameter("area");
+        String experienciaPrevia = request.getParameter("experienciaPrevia");
+        
+
+        AdministrativoDAO administrativoDAO = new AdministrativoDAO();
+        Administrativo administrativo = new Administrativo();
+
+        if (administrativoDAO.update(administrativo)) {
+            response.sendRedirect("ListarUsuario"); // Redirigir a la página que muestra la lista de usuarios actualizada.
+        } else {
+            response.sendRedirect("error.jsp"); // Redirigir a una página de error si la actualización falla.
+        }
 	}
 
 }

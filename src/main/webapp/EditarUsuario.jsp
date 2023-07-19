@@ -14,23 +14,18 @@
 	</header>
 	
 	<section class="fondo d-flex justify-content-center aligm-items-center container-fluid vh-100">
-			<div class="listaUsuarios">
-				<h2>Editar usuario</h2>
-				
-    			
-    				<form action="" method="post">
-    					<div class="d-flex flex-column bg-white fondoUser rounded-1 p-5 w-30">
-    						<label class="form-label">Id</label>
-    						<input type="text" placeholder="ingrese el ID del usuario a editar" required> 
-    						<div class="d-flex">
-    							<button class="btn"> Enviar</button>
-    							<button class="btn">Borrar</button>
-    						</div>
-    						
-    					</div>
-    				</form>
+		<div class="listaUsuarios">
+			<h3>Actualizar Usuario</h3>
+    		<form action="EditarUsuario" method="post">
+        		<input type="hidden" name="id" value="${id}" /> <!-- Aquí obtendrás el ID del usuario que deseas actualizar -->
+       			<label for="nombre">Nombre:</label>
+        		<input type="text" name="nombre" value="${nombre}" /> <!-- Aquí mostrarás el nombre actual del usuario a actualizar -->
+        		<label for="tipo">Tipo:</label>
+        		<input type="text" name="tipo" value="${tipo}" /> <!-- Aquí mostrarás el tipo actual del usuario a actualizar -->
+        		<input type="submit" value="Actualizar" />
+    		</form>
     	
-		</section>
+	</section>
 
 </body>
 </html>

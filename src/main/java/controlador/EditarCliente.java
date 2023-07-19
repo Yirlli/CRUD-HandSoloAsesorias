@@ -5,7 +5,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modelo.Cliente;
+
 import java.io.IOException;
+
+import dao.ClienteDAO;
 
 /**
  * Servlet implementation class EditarCliente
@@ -34,7 +38,27 @@ public class EditarCliente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		int id = Integer.parseInt(request.getParameter("id"));
+        String nombres = request.getParameter("nombres");
+        String apellidos = request.getParameter("apellidos");
+        String telefono = request.getParameter("telefono");
+        String afp = request.getParameter("afp");
+        String sistemaSaludString = request.getParameter("sistemaSalud");
+        int sistemaSalud = Integer.parseInt(sistemaSaludString);
+        String direccionCliente = request.getParameter("direccionCliente");
+        String comunaCliente = request.getParameter("comunaClientes");
+        String edadString = request.getParameter("edad");
+        int edad = Integer.parseInt(edadString);
+        
+
+        ClienteDAO clienteDAO = new ClienteDAO();
+        Cliente cliente = new Cliente(id, nombres, apellidos, telefono ,afp, sistemaSalud, direccionCliente, comunaCliente, edad);
+
+        if (clienteDAO.update(cliente)) {
+            response.sendRedirect("ListarUsuario"); // Redirigir a la página que muestra la lista de usuarios actualizada.
+        } else {
+            response.sendRedirect("error.jsp"); // Redirigir a una página de error si la actualización falla.
+        }
 	}
 
 }

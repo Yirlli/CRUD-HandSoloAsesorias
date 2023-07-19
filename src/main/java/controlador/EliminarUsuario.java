@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import dao.UsuarioDAO;
+
 /**
  * Servlet implementation class EliminarUsuario
  */
@@ -34,7 +36,15 @@ public class EliminarUsuario extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		int idUsuario = Integer.parseInt(request.getParameter("idCliente"));
+
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+        if (usuarioDAO .delete(idUsuario)) {
+            response.sendRedirect("ListarProfesionales"); // Redirigir a la página que muestra la lista de profesionales actualizada.
+        } else {
+            response.sendRedirect("error.jsp"); // Redirigir a una página de error si la eliminación falla.
+        }
 	}
 
 }
