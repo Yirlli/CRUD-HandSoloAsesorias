@@ -3,20 +3,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.sql.Date;
 import conexion.ConexionBD;
 import interfaces.Crud;
 import modelo.Profesional;
-import modelo.Usuario;
+
 
 public class ProfesionalDAO implements Crud <Profesional>{
 	//se agrega los atributos constantes con las querys a utilizar segun los datos y nombre de tablas que se dispongan
-			private static final String SQL_INSERT = "INSERT INTO Profesional (titulo fecha_ingreso) VALUES(?,?)";
+			private static final String SQL_INSERT = "INSERT INTO Profesional (titulo, fecha_ingreso) VALUES(?,?)";
 			private static final String SQL_DELETE ="DELETE FROM Profesional where profesional_id =?";
 			private static final String SQL_UPDATE ="UPDATE Profesional SET titulo=?, fecha_ingreso=? WHERE id=?";
 			private static final String SQL_READ ="SELECT * FROM Profesional WHERE profesional_id=?";
@@ -59,9 +58,8 @@ public class ProfesionalDAO implements Crud <Profesional>{
 		try{
 		ps = conexion.getConexion().prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
 		ps.setString(1, c.getTitulo());
-		LocalDate fechaIngreso = c.getFechaIngreso();
-		java.sql.Date fechaIngresoSql = java.sql.Date.valueOf(fechaIngreso);
-		ps.setDate(2, fechaIngresoSql);
+		Date fechaIngreso = c.getFechaIngreso();
+        ps.setDate(2, fechaIngreso);
 		ps.executeUpdate();
 		
 		 generatedKeys = ps.getGeneratedKeys();
@@ -106,9 +104,8 @@ public class ProfesionalDAO implements Crud <Profesional>{
 			ps = conexion.getConexion().prepareStatement(SQL_UPDATE);
 			ps.setString(1, c.getTitulo());
 			//convertimos la fecha de ingreso en un dato que pueda soportar sql
-			LocalDate fechaIngreso = c.getFechaIngreso();
-			java.sql.Date fechaIngresoSql = java.sql.Date.valueOf(fechaIngreso);
-			ps.setDate(2, fechaIngresoSql);
+			Date fechaIngreso = c.getFechaIngreso();
+	        ps.setDate(2, fechaIngreso);
 			ps.setInt(3, c.getId());
 			
 			if(ps.executeUpdate() > 0) {
@@ -136,8 +133,7 @@ public class ProfesionalDAO implements Crud <Profesional>{
 			
 			res= ps.executeQuery();
 			while(res.next()) {
-				java.sql.Date fechaSql = res.getDate(3);
-		        LocalDate fechaIngreso = fechaSql.toLocalDate();
+				Date fechaIngreso = res.getDate(3);
 				profesional = new Profesional(res.getInt(1),res.getString(2), fechaIngreso);
 			}
 			return profesional;

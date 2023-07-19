@@ -1,11 +1,12 @@
 package modelo;
 
-import java.time.LocalDate;
+import java.sql.Date;
+
 
 public class Profesional extends Usuario{
 	private int profesional_id;
 	private String titulo;
-	private LocalDate  fechaIngreso;
+	private Date  fechaIngreso;
 	
 	public Profesional() {
 	}
@@ -14,7 +15,7 @@ public class Profesional extends Usuario{
 		this.profesional_id = profesional_id;
 	}
 
-	public Profesional(int profesional_id, String titulo, LocalDate fechaIngreso) {
+	public Profesional(int profesional_id, String titulo, Date fechaIngreso) {
 		super();
 		this.profesional_id = profesional_id;
 		this.titulo = titulo;
@@ -42,11 +43,11 @@ public class Profesional extends Usuario{
 		this.titulo = titulo;
 	}
 
-	public LocalDate getFechaIngreso() {
+	public Date getFechaIngreso() {
 		return fechaIngreso;
 	}
 
-	public void setFechaIngreso(LocalDate fechaIngreso) {
+	public void setFechaIngreso(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
 

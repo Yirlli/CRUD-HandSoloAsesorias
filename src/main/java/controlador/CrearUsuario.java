@@ -1,6 +1,7 @@
 package controlador;
 
 import jakarta.servlet.ServletException;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -9,6 +10,9 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import modelo.Administrativo;
 import modelo.Cliente;
@@ -130,8 +134,15 @@ public class CrearUsuario extends HttpServlet {
 	    	Profesional profesional = new Profesional();
 		    profesional.setTitulo (request.getParameter("titulo"));
 		    String fechaIngresoString = request.getParameter("fechaIngreso");
-		    profesional.setFechaIngreso(LocalDate.parse(fechaIngresoString));
-		    
+		    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		    Date fechaIngreso = null;
+			try {
+				fechaIngreso = sdf.parse(fechaIngresoString);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		    profesional.setFechaIngreso(new java.sql.Date(fechaIngreso.getTime()));
 	        
 	        ProfesionalDAO profesionalDAO = new ProfesionalDAO();
 	        profesionalDAO.create(profesional);
