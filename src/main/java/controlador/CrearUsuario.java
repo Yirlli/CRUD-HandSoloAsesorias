@@ -14,7 +14,12 @@ import modelo.Administrativo;
 import modelo.Cliente;
 import modelo.Profesional;
 import modelo.Usuario;
-import java.util.*;/**
+import java.util.*;
+
+import dao.AdministrativoDAO;
+import dao.ClienteDAO;
+import dao.ProfesionalDAO;
+import dao.UsuarioDAO;/**
  * Servlet implementation class CrearUsuario
  */
 public class CrearUsuario extends HttpServlet {
@@ -38,8 +43,31 @@ public class CrearUsuario extends HttpServlet {
 	    	response.sendRedirect("Login.jsp");
 	    
 	    } else {
-	    	List<Usuario> listaUsuarios = (List<Usuario>) session.getAttribute("listaUsuarios");
-	    	 request.setAttribute("listaUsuarios", listaUsuarios);
+	    	UsuarioDAO usuarioDAO = new UsuarioDAO();
+	    	List<Usuario>listaUsuarios = usuarioDAO.readAll();
+	    	
+	    	ClienteDAO clienteDAO = new ClienteDAO();
+	    	List<Cliente> listaClientes = clienteDAO.readAll();
+	    	
+	    	ProfesionalDAO profesionalDAO = new ProfesionalDAO();
+	    	List<Profesional> listaProfesional = profesionalDAO.readAll();
+	    	
+	    	AdministrativoDAO administrativoDAO = new AdministrativoDAO();
+	    	List<Administrativo> listaAdministrativos = administrativoDAO.readAll();
+	    	
+	    	if(listaUsuarios == null ||listaClientes == null|| listaProfesional == null ||listaAdministrativos == null) {
+	    		listaUsuarios = new ArrayList<>();
+	    		listaClientes= new ArrayList<>();
+	    		listaProfesional= new ArrayList<>();
+	    		listaAdministrativos = new ArrayList<>();
+	    		
+	    		
+	    	}
+
+	    	request.setAttribute("listaUsuarios", listaClientes);
+	    	 request.setAttribute("listaClientes", listaClientes);
+	         request.setAttribute("listaProfesional", listaProfesional);
+	         request.setAttribute("listaAdministrativos", listaAdministrativos);
 
 			
 	    	 getServletContext().getRequestDispatcher("/CrearUsuario.jsp").forward(request, response);
@@ -53,60 +81,75 @@ public class CrearUsuario extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		HttpSession session = request.getSession();
-	    List<Usuario> listaUsuarios = (List<Usuario>) session.getAttribute("listaUsuarios");
-	    
-	    if (listaUsuarios == null) {
-
-	        listaUsuarios = new ArrayList<>();
-	    }
+		List<Usuario> listaUsuarios = (List<Usuario>) session.getAttribute("listaUsuarios");
+		    
+		   
+		   
 		
 		//datos generales del usuario
-		String user = request.getParameter("nombreUsuario");
+	    Usuario usuario = new Usuario();
+		usuario.setNombre( request.getParameter("nombreUsuario"));
 	    String tipoUsuario = request.getParameter("tipoUsuario");
-	    String fechaNacimientoString = request.getParameter("fechaNacimiento");
-	    LocalDate fechaNacimiento = LocalDate.parse(fechaNacimientoString);
-	    String runString = request.getParameter("run");
-	    Integer run = Integer.parseInt(runString);
+	    usuario.setTipo(tipoUsuario);
 	    
-
+	    
+	    UsuarioDAO usuarioDAO = new UsuarioDAO();
+	    usuarioDAO.create(usuario);
+	    int idGenerado = usuario.getId();
+	
+	    
+	    session.setAttribute("listaUsuarios", listaUsuarios);
+    
 	    
 	    if (tipoUsuario.equals("Cliente")) {
 	    
-		    
-		    String nombres = request.getParameter("nombreCliente");
-		    String apellidos = request.getParameter("apellidoCliente");
-		    String telefonoString = request.getParameter("tlfCliente");
-		    Integer telefonoCliente = Integer.parseInt(telefonoString);
-		    String afp = request.getParameter("afp");
+	    	List<Cliente> listaClientes = (List<Cliente>) session.getAttribute("listaClientes");
+	    	 
+	    	Cliente cliente = new Cliente();
+		    cliente.setNombres(request.getParameter("nombreCliente"));
+		    cliente.setApellidos( request.getParameter("apellidoCliente"));
+		    cliente.setTelefono( request.getParameter("tlfCliente"));
+		    cliente.setAfp(request.getParameter("afp"));
 		    String sistemaSaludString= request.getParameter("sistemaSalud");
-		    Integer sistemaSalud= Integer.parseInt(sistemaSaludString);
-		    String domicilioCliente = request.getParameter("direccion");
-		    String comunaCliente = request.getParameter("comuna");
+		    cliente.setSistemaSalud(Integer.parseInt(sistemaSaludString));
+		    cliente.setDireccionCliente(request.getParameter("direccion"));
+		    cliente.setComunaCliente(request.getParameter("comuna"));
 		    String edadString = request.getParameter("edad");
-		    Integer edad =  Integer.parseInt(edadString);
-		    String direccionCliente =request.getParameter("direccion");
+		    cliente.setEdad(Integer.parseInt(edadString));
+		    cliente.setDireccionCliente(request.getParameter("direccion"));
 		    
-		    Cliente cliente = new Cliente(user, fechaNacimiento, run, nombres, apellidos,telefonoCliente, afp, sistemaSalud, direccionCliente, comunaCliente, edad);
-		    listaUsuarios.add(cliente);
+		   
+	        
+		    ClienteDAO clienteDAO = new ClienteDAO();
+		    clienteDAO.create(cliente);
+		    int idGene = cliente.getCliente_id();
+		    session.setAttribute("listaClientes", listaClientes);
 		    
 	    } else if (tipoUsuario.equals("Profesional")) {
-	    	
-		    String titulo =request.getParameter("titulo");
+		    List<Profesional> listaProfesional = (List<Profesional>) session.getAttribute("listaProfesional");
+	    	Profesional profesional = new Profesional();
+		    profesional.setTitulo (request.getParameter("titulo"));
 		    String fechaIngresoString = request.getParameter("fechaIngreso");
-		    LocalDate fechaIngreso = LocalDate.parse(fechaIngresoString);
+		    profesional.setFechaIngreso(LocalDate.parse(fechaIngresoString));
 		    
-	        Profesional profesional = new Profesional(user, fechaNacimiento, run, titulo, fechaIngreso);
-	        listaUsuarios.add(profesional);
+	        
+	        ProfesionalDAO profesionalDAO = new ProfesionalDAO();
+	        profesionalDAO.create(profesional);
+	        int idG=profesional.getProfesional_id();
+	        session.setAttribute("listaProfesional", listaProfesional);
 	        
 	    } else if (tipoUsuario.equals("Administrativo")) {
-
-		    String area = request.getParameter("area");
-		    String experienciaPrevia = request.getParameter("experienciaPrevia");
-	        Administrativo administrativo = new Administrativo(user, fechaNacimiento, run, area, experienciaPrevia);
-	        listaUsuarios.add(administrativo);
-	 
+	    	 List<Administrativo> listaAdministrativos = (List<Administrativo>) session.getAttribute("listaAdministrativos");
+	    	Administrativo administrativo = new Administrativo();
+		    administrativo.setArea(request.getParameter("area"));
+		    administrativo.setExperienciaPrevia(request.getParameter("experienciaPrevia"));
+	        
+	        AdministrativoDAO administrativoDAO = new AdministrativoDAO();
+	        administrativoDAO.create(administrativo);
+	        int idGenera = administrativo.getAdministrativo_id();
+	        session.setAttribute("listaAdministrativos", listaAdministrativos);
 	    }
-	    session.setAttribute("listaUsuarios", listaUsuarios);
+	  
 	    response.sendRedirect("ListarUsuario");
 	   
 	}

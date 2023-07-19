@@ -8,15 +8,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.Statement;
 import conexion.ConexionBD;
-import dto.CapacitacionDTO;
 import interfaces.Crud;
+import modelo.Capacitacion;
 
-public class CapacitacionDAO implements Crud<CapacitacionDTO>{
+public class CapacitacionDAO implements Crud<Capacitacion>{
 	
 	//se agrega los atributos constantes con las querys a utilizar segun los datos y nombre de tablas que se dispongan
-	private static final String SQL_INSERT = "INSERT INTO Capacitaciones (nombre, detalle) VALUES(?,?)";
+	private static final String SQL_INSERT = "INSERT INTO Capacitaciones (nombre, detalle) VALUES(?,?,?,?,?,?,?,?)";
 	private static final String SQL_DELETE ="DELETE FROM Capacitaciones where id =?";
-	private static final String SQL_UPDATE ="UPDATE Capacitaciones SET nombre=?, detalle=? WHERE id=?";
+	private static final String SQL_UPDATE ="UPDATE Capacitaciones SET nombre=?, detalle=?, rut_cliente=?, dia=?, hora=?, lugar=?, duracion=?, cantidad_asistentes=? WHERE id=?";
 	private static final String SQL_READ ="SELECT * FROM Capacitaciones WHERE id=?";
 	private static final String SQL_READALL ="SELECT * FROM Capacitaciones";
 	
@@ -33,12 +33,13 @@ public class CapacitacionDAO implements Crud<CapacitacionDTO>{
 		// TODO Auto-generated method stub
 		PreparedStatement ps;
 		ResultSet res;
-		ArrayList<CapacitacionDTO> listaCapacitaciones = new ArrayList<>();
+		ArrayList<Capacitacion> listaCapacitaciones = new ArrayList<>();
 		try {
 			ps = conexion.getConexion().prepareStatement(SQL_READALL);
 			res= ps.executeQuery();
 			while(res.next()) {
-				listaCapacitaciones.add(new CapacitacionDTO(res.getInt(1), res.getString(2),res.getString(3)));
+				listaCapacitaciones.add(new Capacitacion(res.getInt(1), res.getString(2),res.getString(3),res.getInt(4),res.getString(5),
+						res.getString(6),res.getString(7),res.getInt(8),res.getInt(9)));
 			}
 			
 		}catch(SQLException e) {
@@ -50,7 +51,7 @@ public class CapacitacionDAO implements Crud<CapacitacionDTO>{
 	}
 
 	@Override
-	public void create(CapacitacionDTO c) {
+	public void create(Capacitacion c) {
 		// TODO Auto-generated method stub
 		PreparedStatement ps;
 		 ResultSet generatedKeys;
@@ -58,6 +59,12 @@ public class CapacitacionDAO implements Crud<CapacitacionDTO>{
 		ps = conexion.getConexion().prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
 		ps.setString(1, c.getNombre());
 		ps.setString(2, c.getDetalle());
+		ps.setInt(3, c.getRutCliente());
+		ps.setString(4, c.getDia());
+		ps.setString(5, c.getHora());
+		ps.setString(6, c.getLugar());
+		ps.setInt(7, c.getDuracion());
+		ps.setInt(8, c.getCantidadAsistentes());
 		ps.executeUpdate();
 		
 		 generatedKeys = ps.getGeneratedKeys();
@@ -94,7 +101,7 @@ public class CapacitacionDAO implements Crud<CapacitacionDTO>{
 	}
 
 	@Override
-	public boolean update(CapacitacionDTO c) {
+	public boolean update(Capacitacion c) {
 		// TODO Auto-generated method stub
 		
 		PreparedStatement ps;
@@ -103,7 +110,13 @@ public class CapacitacionDAO implements Crud<CapacitacionDTO>{
 			ps = conexion.getConexion().prepareStatement(SQL_UPDATE);
 			ps.setString(1, c.getNombre());
 			ps.setString(2, c.getDetalle());
-			ps.setInt(3, c.getId());
+			ps.setInt(3, c.getRutCliente());
+			ps.setString(4, c.getDia());
+			ps.setString(5, c.getHora());
+			ps.setString(6, c.getLugar());
+			ps.setInt(7, c.getDuracion());
+			ps.setInt(8, c.getCantidadAsistentes());
+			ps.setInt(9, c.getId());
 			
 			if(ps.executeUpdate() > 0) {
 				return true;
@@ -123,7 +136,7 @@ public class CapacitacionDAO implements Crud<CapacitacionDTO>{
 		
 		PreparedStatement ps;
 		ResultSet res;
-		CapacitacionDTO capacitaciones = null;
+		Capacitacion capacitaciones = null;
 		
 		try {
 			ps = conexion.getConexion().prepareStatement(SQL_READ);
@@ -131,7 +144,8 @@ public class CapacitacionDAO implements Crud<CapacitacionDTO>{
 			
 			res= ps.executeQuery();
 			while(res.next()) {
-				capacitaciones = new CapacitacionDTO(res.getInt(1),res.getString(2), res.getString(3));
+				capacitaciones = new Capacitacion(res.getInt(1), res.getString(2),res.getString(3),res.getInt(4),res.getString(5),
+						res.getString(6),res.getString(7),res.getInt(8),res.getInt(9));
 			}
 			return capacitaciones;
 		}catch(SQLException e) {

@@ -1,59 +1,53 @@
 package modelo;
 
-import java.time.LocalDate;
+public class Usuario {
 
-public abstract class Usuario {
+	private int id;
+	private String nombre;
+	private String tipo;
+	
+	public Usuario() {super();
+	}
+
+	public Usuario(int id) {super();
+		this.id = id;
+	}
+
+	public Usuario(int id, String nombre, String tipo) {
+		this.id = id;
+		this.nombre = nombre;
+		this.tipo = tipo;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	@Override
+	public String toString() {
+		return "UsuarioDTO [id=" + id + ", nombre=" + nombre + ", tipo=" + tipo + "]";
+	}
 	
 	
-		private String user;
-		private LocalDate fechaNacimiento;
-		private Integer run;
-
-		
-		public Usuario() {}
-
-		public Usuario (String user, LocalDate fechaNacimiento, Integer run){
-			this.user = user;
-			this.fechaNacimiento = fechaNacimiento;
-			this.run = run;
-			
-			
-		}
-
-
-		public String getUser(){
-			return user;
-		}
-		
-		public void setUser(String nombre) {
-
-			this.user = user;
-		}
-		
-
-		public LocalDate getFechaNacimiento() {
-			return fechaNacimiento;
-		}
-		
-		public void setFechaNacimiento(LocalDate fechaNacimiento) {
-			
-			this.fechaNacimiento = fechaNacimiento;
-		}
-		public  Integer getRun() {
-			return run;
-		}
-		
-		public void setRut( Integer run) {
-			
-			this.run= run;
-		}
-		
-		@Override 
-		public String toString() {
-			return "Nombre: " + user + " \n RUT " + run + " \n Fecha de nacimiento " + fechaNacimiento;
-		}
-
-		
-
-
+	
 }

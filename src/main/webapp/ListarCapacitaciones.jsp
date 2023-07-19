@@ -21,8 +21,15 @@
             <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
                 <div class="container-fluid">
                     <p><b>Identificador N°:</b> ${capacitacion.id}</p>
-                    <p><b>Nombre:</b> ${capacitacion.nombre}</p>
+                    <p><b>Nombre de la capacitacion:</b> ${capacitacion.nombre}</p>
                     <p><b>Detalle:</b> ${capacitacion.detalle}</p>
+                    <p><b>Rut del cliente:</b> ${capacitacion.detalle}</p>
+                    <p><b>Dia:</b> ${capacitacion.detalle}</p>
+                    <p><b>Hora:</b> ${capacitacion.detalle}</p>
+                    <p><b>Lugar:</b> ${capacitacion.detalle}</p>
+                    <p><b>Duracion:</b> ${capacitacion.detalle}</p>
+                    <p><b>Cantidad de asistentes:</b> ${capacitacion.detalle}</p>
+                  
 					
                 </div>
             </div>

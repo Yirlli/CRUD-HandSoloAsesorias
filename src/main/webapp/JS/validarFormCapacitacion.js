@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('form');
-  const idCapacitacion = document.getElementById('idCapacitacion');
+  const nombre = document.getElementById('nombre');
   const rutCliente = document.getElementById('rutCliente');
   const dia = document.getElementById('dia');
   const hora = document.getElementById('hora');
@@ -17,11 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
     	});
 
 
-	if (idCapacitacion.value.trim() === '' || isNaN(idCapacitacion.value)) {
-	mostrarMensajeError(idCapacitacion, "Campo Obligatorio, ingrese un numero de identificacion");
-    	return false;
+	if (nombre.value.length < 10 || nombre.value.length > 50 || nombre.value.trim() === "") {
+      mostrarMensajeError(lugar, "Campo invalido, debe contener entre 10 y 50 caracteres");
+      return false;
     }
-
     if (rutCliente.value.trim() === '' || isNaN(rutCliente.value)) {
       mostrarMensajeError(rutCliente, "Campo Obligatorio, Ingrese el rut del cliente");
       return false;

@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('form');
 
   const nombreUsuario = document.getElementById('nombreUsuario');
-  const fechaNacimiento = document.getElementById('fechaNacimiento');
-  const run = document.getElementById('run');
+ /* const fechaNacimiento = document.getElementById('fechaNacimiento');
+  const run = document.getElementById('run');*/
 
   const nombreCliente = document.getElementById('nombreCliente');
   const apellidoCliente = document.getElementById('apellidoCliente');
@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return false;
     }
 
-    // Validar el RUN
+   /* // Validar el RUN
     if (run.value < 99999999) {
       mostrarMensajeError(run, "RUN inválido, el número no puede ser menor a 99.999.999");
       return false;
-    }
+    }*/
 
     // Validar campos del cliente si existen
     const nombreClienteDiv = document.querySelector('.nombreCliente');

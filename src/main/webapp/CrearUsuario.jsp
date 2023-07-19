@@ -18,18 +18,8 @@
 			<h1>Datos del Usuario</h1>
 			<form action="CrearUsuario" method="POST" id="form" >
 				<div class="nombreUsuario">
-					<label class="form-label" for="nombreUsuario">Nombre de usuario(para el inicio de sesión):</label>
+					<label class="form-label" for="nombreUsuario">Nombre de usuario:</label>
 					<input class="form-control" placeholder="Ingresa su nombre" type="text" name="nombreUsuario" id="nombreUsuario">
-					<p class="msjError text-danger"></p>
-				</div>
-				<div class="fechaNacimiento">
-					<label class="form-label" for="fechaNacimiento">Fecha de nacimiento:</label>
-					<input  class="form-control" type="date"name="fechaNacimiento" id="fechaNacimiento">
-					<p class="msjError text-danger"></p>
-				</div>
-				<div class="run">
-					<label class="form-label" for="run">RUN: </label>
-					<input class="form-control" type="text" placeholder="Ingresa su RUN, sin guion, con digito verificador" name="run" id="run">
 					<p class="msjError text-danger"></p>
 				</div>
 				<div class="d-flex flex-column">

@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import modelo.Capacitacion;
+import modelo.Capacitacion;
 import modelo.Usuario;
 
 import java.io.IOException;
@@ -15,7 +16,6 @@ import java.util.List;
 
 import interfaces.Crud;
 import dao.CapacitacionDAO;
-import dto.CapacitacionDTO;
 
 
 /**
@@ -43,7 +43,7 @@ public class CrearCapacitacion extends HttpServlet {
 	            getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
 	        } else {
 	            CapacitacionDAO capacitacionDAO = new CapacitacionDAO();
-	            List<CapacitacionDTO> listaCapacitaciones = capacitacionDAO.readAll();
+	            List<Capacitacion> listaCapacitaciones = capacitacionDAO.readAll();
 	            if (listaCapacitaciones == null) {
 	                listaCapacitaciones = new ArrayList<>();
 	            }
@@ -66,21 +66,16 @@ public class CrearCapacitacion extends HttpServlet {
         if (session == null || session.getAttribute("userLogin") == null) {
             response.sendRedirect("Login.jsp");
         } else {
-           /* String identificadorString = request.getParameter("idCapacitacion");
-            Integer identificador = Integer.parseInt(identificadorString);
-            String rutClienteString = request.getParameter("rutCliente");
-            Integer rutCliente = Integer.parseInt(rutClienteString);
-            String dia = request.getParameter("dia");
-            String hora = request.getParameter("hora");
-            String lugar = request.getParameter("lugar");
-            String duracionString = request.getParameter("duracion");
-            Integer duracion = Integer.parseInt(duracionString);
-            String cantidadAsistentesString = request.getParameter("cantidadAsistentes");
-            Integer cantidadAsistentes = Integer.parseInt(cantidadAsistentesString);*/
-        	
-        	CapacitacionDTO capacitacion = new CapacitacionDTO();
+           
+        	Capacitacion capacitacion = new Capacitacion();
         	capacitacion.setNombre(request.getParameter("nombre"));
         	capacitacion.setDetalle(request.getParameter("detalle"));
+        	capacitacion.setNombre(request.getParameter("rutCliente"));
+        	capacitacion.setDetalle(request.getParameter("dia"));
+        	capacitacion.setNombre(request.getParameter("hora"));
+        	capacitacion.setDetalle(request.getParameter("lugar"));
+        	capacitacion.setNombre(request.getParameter("duracion"));
+        	capacitacion.setDetalle(request.getParameter("cantidadAsistentes"));
         
             CapacitacionDAO capacitacionDAO = new CapacitacionDAO();
             capacitacionDAO.create(capacitacion);

@@ -7,13 +7,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import modelo.Capacitacion;
+import modelo.Capacitacion;
 
 import java.io.IOException;
 import java.util.*;
 import implementacion.ImpCapacitacion;
 import interfaces.Crud;
 import dao.CapacitacionDAO;
-import dto.CapacitacionDTO;
 
 /**
  * Servlet implementation class ListarCapacitaciones
@@ -39,7 +39,7 @@ public class ListarCapacitaciones extends HttpServlet {
             getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
         } else {
             CapacitacionDAO capacitacionDAO = new CapacitacionDAO();
-            List<CapacitacionDTO> listaCapacitacion = capacitacionDAO.readAll();
+            List<Capacitacion> listaCapacitacion = capacitacionDAO.readAll();
             request.setAttribute("listaCapacitacion", listaCapacitacion);
             getServletContext().getRequestDispatcher("/ListarCapacitaciones.jsp").forward(request, response);
         }

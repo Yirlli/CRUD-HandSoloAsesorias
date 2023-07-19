@@ -20,103 +20,20 @@
  		<jsp:include page="Menu.jsp" />
 	</header>
 	
-	<section class="fondo d-flex  container-fluid vh-100">
-			<div class="listaUsuarios">
-				<h2>Lista de Usuarios</h2>
-				<c:forEach var="usuario" items="${listaUsuarios}">
-				
-    				<c:if test="${usuario.getClass().getName().equals('modelo.Cliente')}">
-    					
-    					<div class="d-flex flex-column bg-white fondoUser rounded-1 p-5">
-    						<h3>Cliente</h3>
-    						<div class="container-fluid">
-								<b>Nombre de Usuario:</b>${usuario.user}
-							</div>
-    						<p>
-    							<b>Fecha de Nacimiento:</b> ${usuario.fechaNacimiento}
-    						</p>
-   							<p>
-   								<b>RUN:</b> ${usuario.run}
-   							</p>
-        					<p>
-        						<b>Nombres:</b> ${usuario.nombres}
-        					</p>
-        					<p>
-        						<b>Apellidos:</b> ${usuario.apellidos}
-        					</p>
-        					<p>
-        						<b>Teléfono:</b> ${usuario.telefonoCliente}
-        					</p>
-        					<p>
-        						<b>AFP:</b> ${usuario.afp}
-        					</p>
-        					<p>
-        						<b>Sistema de Salud:</b> ${usuario.sistemaSalud}
-        					</p>
-        					<p>
-        						<b>Dirección:</b> ${usuario.direccionCliente}
-        					</p>
-        					<p>
-        						<b>Comuna:</b> ${usuario.comunaCliente}
-        					</p>
-        					<p>
-        						<b>Edad:</b> ${usuario.edad}
-        					</p>
-    					</div>
-        				
-    				</c:if>
-    
-    				<c:if test="${usuario.getClass().getName().equals('modelo.Profesional')}">
-    					
-    					<div class="d-flex flex-column bg-white fondoUser rounded-1 p-5" >
-    						<h3>Profesional</h3>
-    						<p>
-								<b>Nombre de Usuario:</b>${usuario.user}
-							</p>
-    						<p>
-    							<b>Fecha de Nacimiento:</b> ${usuario.fechaNacimiento}
-    						</p>
-   							<p>
-   								<b>RUN:</b> ${usuario.run}
-   							</p>
-        					<p>
-        						<b>Título:</b> ${usuario.titulo}
-        					</p>
-        					<p>
-        						<b>Fecha de Ingreso:</b> ${usuario.fechaIngreso}
-        					</p>
-    					</div>
-        				
-    				</c:if>
-    
-    				<c:if test="${usuario.getClass().getName().equals('modelo.Administrativo')}">
-    					
-    					<div class="d-flex flex-column bg-white fondoUser rounded-1 p-5">
-    						<h3>Administrativo</h3>
-    						<p>
-								<b>Nombre de Usuario:</b>${usuario.user}
-							</p>
-    						<p>
-    							<b>Fecha de Nacimiento:</b> ${usuario.fechaNacimiento}
-    						</p>
-   							<p>
-   								<b>RUN:</b> ${usuario.run}
-   							</p>
-        					<p>
-        						<b>Área:</b> ${usuario.area}
-        					</p>
-        					<p>
-        						<b>Experiencia Previa:</b> ${usuario.experienciaPrevia}
-        					</p>
-    					</div>
-        				
-    				</c:if>
-    
-    				
-				</c:forEach>
-		
-			</div>
-		</section>
-
+	<h3 class="text-center p-2">Lista de Usuarios</h3>
+    <c:forEach var="usuario" items="${listaUsuarios}">
+        <section class="fondo d-flex container-fluid justify-content-center p-5">
+            <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
+                <div class="container-fluid">
+                    <p><b>Identificador N°:</b> ${usuario.id}</p>
+                    <p><b>Nombre de usuario:</b> ${usuario.nombre}</p>
+                    <p><b>Tipo de Usuario:</b> ${usuario.tipo}</p>
+                
+                  
+					
+                </div>
+            </div>
+        </section>
+    </c:forEach>
 </body>
 </html>
