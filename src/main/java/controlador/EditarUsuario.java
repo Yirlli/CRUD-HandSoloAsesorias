@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import modelo.Usuario;
 import dao.UsuarioDAO;
@@ -28,7 +30,13 @@ public class EditarUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession(false);
+	    if (session == null || session.getAttribute("userLogin") == null) {
+	    	response.sendRedirect("Login.jsp");
+	    
+	    } else {
+	    	response.sendRedirect("EditarUsuario.jsp");
+	    }
 	}
 
 	/**
@@ -36,17 +44,18 @@ public class EditarUsuario extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		int id = Integer.parseInt(request.getParameter("id"));
         String nombre = request.getParameter("nombre");
         String tipo = request.getParameter("tipo");
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        Usuario usuario = new Usuario();
+        Usuario usuario = new Usuario(id,nombre,tipo);
 
         if (usuarioDAO.update(usuario)) {
-            response.sendRedirect("ListarUsuario"); // Redirigir a la página que muestra la lista de usuarios actualizada.
+            response.sendRedirect("Resultado.jsp?msg=La modificacion se ha realizado con exito"); 
         } else {
-            response.sendRedirect("error.jsp"); // Redirigir a una página de error si la actualización falla.
+            response.sendRedirect("Resultado.jsp?msg=La modificacion no se ha realizado. Ingrese un Id valido"); 
+
         }
 	}
 

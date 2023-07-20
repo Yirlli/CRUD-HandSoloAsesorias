@@ -43,8 +43,7 @@ public class EditarCliente extends HttpServlet {
         String apellidos = request.getParameter("apellidos");
         String telefono = request.getParameter("telefono");
         String afp = request.getParameter("afp");
-        String sistemaSaludString = request.getParameter("sistemaSalud");
-        int sistemaSalud = Integer.parseInt(sistemaSaludString);
+        String sistemaSalud = request.getParameter("sistemaSalud");
         String direccionCliente = request.getParameter("direccionCliente");
         String comunaCliente = request.getParameter("comunaClientes");
         String edadString = request.getParameter("edad");
@@ -55,9 +54,9 @@ public class EditarCliente extends HttpServlet {
         Cliente cliente = new Cliente(id, nombres, apellidos, telefono ,afp, sistemaSalud, direccionCliente, comunaCliente, edad);
 
         if (clienteDAO.update(cliente)) {
-            response.sendRedirect("ListarUsuario"); // Redirigir a la página que muestra la lista de usuarios actualizada.
+            response.sendRedirect("Resultado.jsp?msg=La modificacion se ha realizado con exito"); 
         } else {
-            response.sendRedirect("error.jsp"); // Redirigir a una página de error si la actualización falla.
+            response.sendRedirect("Resultado.jsp?msg=La modificacion no se ha realizado. Ingrese un Id valido"); 
         }
 	}
 

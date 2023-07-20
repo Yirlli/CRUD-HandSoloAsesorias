@@ -114,8 +114,7 @@ public class CrearUsuario extends HttpServlet {
 		    cliente.setApellidos( request.getParameter("apellidoCliente"));
 		    cliente.setTelefono( request.getParameter("tlfCliente"));
 		    cliente.setAfp(request.getParameter("afp"));
-		    String sistemaSaludString= request.getParameter("sistemaSalud");
-		    cliente.setSistemaSalud(Integer.parseInt(sistemaSaludString));
+		    cliente.setSistemaSalud(request.getParameter("sistemaSalud"));
 		    cliente.setDireccionCliente(request.getParameter("direccion"));
 		    cliente.setComunaCliente(request.getParameter("comuna"));
 		    String edadString = request.getParameter("edad");
@@ -148,6 +147,7 @@ public class CrearUsuario extends HttpServlet {
 	        profesionalDAO.create(profesional);
 	        int idG=profesional.getProfesional_id();
 	        session.setAttribute("listaProfesional", listaProfesional);
+	       
 	        
 	    } else if (tipoUsuario.equals("Administrativo")) {
 	    	 List<Administrativo> listaAdministrativos = (List<Administrativo>) session.getAttribute("listaAdministrativos");
@@ -161,7 +161,7 @@ public class CrearUsuario extends HttpServlet {
 	        session.setAttribute("listaAdministrativos", listaAdministrativos);
 	    }
 	  
-	    response.sendRedirect("ListarUsuario");
+	    response.sendRedirect("Resultado.jsp?msg=Usuario creado satisfactoriamente");
 	   
 	}
 	 

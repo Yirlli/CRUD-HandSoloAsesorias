@@ -17,35 +17,35 @@
       </button>
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        	
           <li class="nav-item ">
-            <a class="nav-link active" aria-current="page" href="CrearCapacitacion">Crear Capacitacion</a>
+            <a class="nav-link active" aria-current="page" href="AccUsuario.jsp">Usuario</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link active" aria-current="page" href="ListarCapacitaciones">Lista de Capacitaciones</a>
+            <a class="nav-link active" aria-current="page" href="AccAdministrativo.jsp">Administrativo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="CrearUsuario">Crear Usuario</a>
+            <a class="nav-link active" aria-current="page" href="AccCliente.jsp">Cliente</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="ListarUsuario">Lista de Usuario</a>
+            <a class="nav-link active" aria-current="page" href="AccProfesional.jsp">Profesional</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="AccCapacitacion.jsp">Capacitacion</a>
           </li>
            <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="Contacto">Contacto</a>
+        
+          </li>
+           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="Login">Inicia Sesion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="CerrarSession">Cerrar Sesión</a>
           </li>
        
     
-          <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Cuenta
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="Login">Inicia Sesión</a></li>
-              <li><a class="dropdown-item" href="CrearUsuario">Crear Usuario</a></li>
-            </ul>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="CerrarSession">Cerrar Sesión</a>
-          </li>
+          
            
         </ul>
         

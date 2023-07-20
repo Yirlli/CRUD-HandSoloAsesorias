@@ -14,26 +14,23 @@
 	</header>
 	
 	<section class="fondo d-flex justify-content-center aligm-items-center container-fluid vh-100">
-			<div class="listaUsuarios">
-				<h2>Eliminar usuario</h2>
-				
-    			
-    				<form action="" method="post">
-    					<div class="d-flex flex-column bg-white fondoUser rounded-1 p-5 w-30">
-    						<label class="form-label">Id</label>
-    						<input type="text" placeholder="ingrese el ID del usuario a eliminar" required> 
-    						<div class="d-flex">
-    							<button class="btn"> Enviar</button>
-    							<button class="btn">Borrar</button>
-    						</div>
-    						
-    					</div>
-    				</form>
-    			
-    				
-    						
-				
+		<div class="w-75">
+			<h2>Eliminar usuario</h2>
+    			<form action="EliminarUsuario" method="post">
+    				<div class="d-flex flex-column bg-white fondoUser rounded-1 p-5 justify-content-center align-items-center">
+    					<label class="form-label">Busqueda por ID</label>
+    					<input type="text" placeholder="ingrese el ID del usuario a eliminar" name="id"required class="form-control w-50"> 
+    					<div class="d-flex mt-5 gap-3">
+    						<button class="btn btn-success"> Enviar</button>
+    						<button class="btn btn-danger">Borrar</button>
+    					</div>	
+    				</div>
+    			</form>
+    		</div>
 		</section>
+		<div class="volver mb-5 d-flex justify-content-center">
+			<a href="Index.jsp">Volver a página de inicio</a>
+		</div> 
 
 </body>
 </html>

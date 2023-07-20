@@ -70,18 +70,21 @@ public class CrearCapacitacion extends HttpServlet {
         	Capacitacion capacitacion = new Capacitacion();
         	capacitacion.setNombre(request.getParameter("nombre"));
         	capacitacion.setDetalle(request.getParameter("detalle"));
-        	capacitacion.setNombre(request.getParameter("rutCliente"));
-        	capacitacion.setDetalle(request.getParameter("dia"));
-        	capacitacion.setNombre(request.getParameter("hora"));
-        	capacitacion.setDetalle(request.getParameter("lugar"));
-        	capacitacion.setNombre(request.getParameter("duracion"));
-        	capacitacion.setDetalle(request.getParameter("cantidadAsistentes"));
+        	String rutClienteString = request.getParameter("rutCliente");
+        	capacitacion.setRutCliente(Integer.parseInt(rutClienteString));
+        	capacitacion.setDia(request.getParameter("dia"));
+        	capacitacion.setHora(request.getParameter("hora"));
+        	capacitacion.setLugar(request.getParameter("lugar"));
+        	String duracionString = request.getParameter("duracion");
+        	capacitacion.setDuracion(Integer.parseInt(duracionString));
+        	String cantidadString= request.getParameter("cantidadAsistentes");
+        	capacitacion.setCantidadAsistentes(Integer.parseInt(cantidadString));
         
             CapacitacionDAO capacitacionDAO = new CapacitacionDAO();
             capacitacionDAO.create(capacitacion);
             int idGenerado = capacitacion.getId();
 
-            response.sendRedirect("CapacitacionSatisfactorio.jsp");
+            response.sendRedirect("Resultado.jsp?msg=La capacitacion se ha creado con exito");
 	        }
 	}
 

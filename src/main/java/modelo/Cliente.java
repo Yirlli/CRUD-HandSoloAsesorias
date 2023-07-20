@@ -6,7 +6,7 @@ public class Cliente extends Usuario{
 	private String apellidos;
 	private String telefono;
 	private String afp;
-	private Integer sistemaSalud;
+	private String sistemaSalud;
 	private String direccionCliente;
 	private String comunaCliente;
 	private Integer edad;
@@ -19,7 +19,7 @@ public class Cliente extends Usuario{
 	}
 
 	public Cliente(int cliente_id, String nombres, String apellidos, String telefono, String afp,
-			Integer sistemaSalud, String direccionCliente, String comunaCliente, Integer edad) {
+			String sistemaSalud, String direccionCliente, String comunaCliente, Integer edad) {
 		super();
 		this.cliente_id = cliente_id;
 		this.nombres = nombres;
@@ -77,11 +77,11 @@ public class Cliente extends Usuario{
 		this.afp = afp;
 	}
 
-	public Integer getSistemaSalud() {
+	public String getSistemaSalud() {
 		return sistemaSalud;
 	}
 
-	public void setSistemaSalud(Integer sistemaSalud) {
+	public void setSistemaSalud(String sistemaSalud) {
 		this.sistemaSalud = sistemaSalud;
 	}
 

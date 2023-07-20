@@ -14,7 +14,7 @@ import modelo.Capacitacion;
 public class CapacitacionDAO implements Crud<Capacitacion>{
 	
 	//se agrega los atributos constantes con las querys a utilizar segun los datos y nombre de tablas que se dispongan
-	private static final String SQL_INSERT = "INSERT INTO Capacitaciones (nombre, detalle) VALUES(?,?,?,?,?,?,?,?)";
+	private static final String SQL_INSERT = "INSERT INTO Capacitaciones (nombre, detalle, rut_cliente, dia, hora,lugar,duracion, cantidad_asistentes) VALUES(?,?,?,?,?,?,?,?)";
 	private static final String SQL_DELETE ="DELETE FROM Capacitaciones where id =?";
 	private static final String SQL_UPDATE ="UPDATE Capacitaciones SET nombre=?, detalle=?, rut_cliente=?, dia=?, hora=?, lugar=?, duracion=?, cantidad_asistentes=? WHERE id=?";
 	private static final String SQL_READ ="SELECT * FROM Capacitaciones WHERE id=?";
@@ -49,7 +49,6 @@ public class CapacitacionDAO implements Crud<Capacitacion>{
         }
 		return listaCapacitaciones;
 	}
-
 	@Override
 	public void create(Capacitacion c) {
 		// TODO Auto-generated method stub

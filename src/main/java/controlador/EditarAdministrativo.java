@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import modelo.Administrativo;
 
 import java.io.IOException;
@@ -30,7 +31,13 @@ public class EditarAdministrativo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession(false);
+	    if (session == null || session.getAttribute("userLogin") == null) {
+	    	response.sendRedirect("Login.jsp");
+	    
+	    } else {
+	    	response.sendRedirect("EditarAdministrativo.jsp");
+	    }
 	}
 
 	/**
@@ -38,6 +45,7 @@ public class EditarAdministrativo extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		int id = Integer.parseInt(request.getParameter("id"));
 		String area = request.getParameter("area");
         String experienciaPrevia = request.getParameter("experienciaPrevia");
         
@@ -46,9 +54,9 @@ public class EditarAdministrativo extends HttpServlet {
         Administrativo administrativo = new Administrativo();
 
         if (administrativoDAO.update(administrativo)) {
-            response.sendRedirect("ListarUsuario"); // Redirigir a la página que muestra la lista de usuarios actualizada.
+            response.sendRedirect("Resultado.jsp?msg=La modificacion se ha realizado con exito"); 
         } else {
-            response.sendRedirect("error.jsp"); // Redirigir a una página de error si la actualización falla.
+            response.sendRedirect("Resultado.jsp?msg=La modificacion no se ha realizado. Ingrese un Id valido"); 
         }
 	}
 

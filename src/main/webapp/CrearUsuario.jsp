@@ -13,7 +13,7 @@
 	<header>
  		<jsp:include page="Menu.jsp" />
 	</header>
-	<section class="fondo d-flex  justify-content-center">
+	<section class="fondo d-flex  justify-content-center vh-100">
 		<section class="formCapacitacion d-flex flex-column  justify-content-center">
 			<h1>Datos del Usuario</h1>
 			<form action="CrearUsuario" method="POST" id="form" >
@@ -51,7 +51,7 @@
 				</div>
 			
 			</form>
-			<div class="volver mb-5 d-flex justify-content-cente">
+			<div class="volver mb-5 d-flex justify-content-center">
 				<a href="Index.jsp">Volver a página de inicio</a>
 			</div> 
 			

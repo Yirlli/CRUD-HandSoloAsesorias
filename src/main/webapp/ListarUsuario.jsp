@@ -20,8 +20,9 @@
  		<jsp:include page="Menu.jsp" />
 	</header>
 	
-	<h3 class="text-center p-2">Lista de Usuarios</h3>
+	
     <c:forEach var="usuario" items="${listaUsuarios}">
+    <h3 class="text-center p-2">Lista de Usuarios</h3>
         <section class="fondo d-flex container-fluid justify-content-center p-5">
             <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
                 <div class="container-fluid">
@@ -35,5 +36,60 @@
             </div>
         </section>
     </c:forEach>
+    <c:forEach var="usuario" items="${listaAdministrativos}">
+    <h3 class="text-center p-2">Lista de Clientes</h3>
+        <section class="fondo d-flex container-fluid justify-content-center p-5">
+        
+            <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
+            	
+                <div class="container-fluid">
+                    <p><b>Identificador N°:</b> ${usuario.administrativo_id}</p>
+                    <p><b>Area:</b> ${usuario.area}</p>
+                    <p><b>Experiencia Previa:</b> ${usuario.experienciaPrevia}</p>
+                
+                  
+					
+                </div>
+            </div>
+        </section>
+    </c:forEach>
+     <c:forEach var="profesional" items="${listaProfesionales}">
+     <h3 class="text-center p-2">Lista de Profesionales</h3>
+        <section class="fondo d-flex container-fluid justify-content-center p-5">
+            <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
+                <div class="container-fluid">
+                    <p><b>Identificador N°:</b> ${profesional.profesional_id}</p>
+                    <p><b>Titulo:</b> ${profesional.titulo}</p>
+                    <p><b>Fecha de Ingreso:</b> ${profesional.fechaIngreso}</p>
+                    
+                  
+					
+                </div>
+            </div>
+        </section>
+    </c:forEach>
+     <c:forEach var="cliente" items="${listaClientes}">
+     <h3 class="text-center p-2">Lista de Clientess</h3>
+        <section class="fondo d-flex container-fluid justify-content-center p-5">
+            <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
+                <div class="container-fluid">
+                    <p><b>Identificador N°:</b> ${cliente.cliente_id}</p>
+                    <p><b>Nombres:</b> ${cliente.nombres}</p>
+                    <p><b>Apellidos:</b> ${cliente.apellidos}</p>
+                    <p><b>Telefono:</b> ${cliente.telefono}</p>
+                    <p><b>AFP:</b> ${cliente.afp}</p>
+                    <p><b>Sistema de salud:</b> ${cliente.sistemaSalud}</p>
+                    <p><b>Direccion:</b> ${cliente.direccionCliente}</p>
+                    <p><b>Comuna:</b> ${cliente.comunaCliente}</p>
+                    <p><b>Edad:</b> ${cliente.edad}</p>
+                
+                  
+					
+                </div>
+            </div>
+        </section>
+    </c:forEach>
+    
+    
 </body>
 </html>

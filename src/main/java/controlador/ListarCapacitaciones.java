@@ -11,7 +11,7 @@ import modelo.Capacitacion;
 
 import java.io.IOException;
 import java.util.*;
-import implementacion.ImpCapacitacion;
+
 import interfaces.Crud;
 import dao.CapacitacionDAO;
 
@@ -39,8 +39,8 @@ public class ListarCapacitaciones extends HttpServlet {
             getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
         } else {
             CapacitacionDAO capacitacionDAO = new CapacitacionDAO();
-            List<Capacitacion> listaCapacitacion = capacitacionDAO.readAll();
-            request.setAttribute("listaCapacitacion", listaCapacitacion);
+            List<Capacitacion> listaCapacitaciones = capacitacionDAO.readAll();
+            request.setAttribute("listaCapacitaciones", listaCapacitaciones);
             getServletContext().getRequestDispatcher("/ListarCapacitaciones.jsp").forward(request, response);
         }
 		

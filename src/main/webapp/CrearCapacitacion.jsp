@@ -31,21 +31,25 @@
 					<div class="rutCliente">
 						<label class="form-label">Rut del Cliente:</label>
 						<input  class="form-control" type="number"placeholder="Ingrese el Rut del cliente sin guion"name="rutCliente" id="rutCliente" required>
+						<div class="form-text">El rut no debe superar los 9 dígitos.</div>
 						<p class="msjError text-danger"></p>
 					</div>
 					<div class="dia">
 						<label class="form-label">Día: </label>
 						<input class="form-control" type= placeholder="Ingresa el dia (lunes a domingo)" name="dia" id="dia">
+						<div class="form-text">Días: Lunes, Martes, Miercoles, Jueves, Viernes, Sabado y Domingo</div>
 						<p class="msjError text-danger"></p>
 					</div>
 					<div class="hora">
 						<label class="form-label">Hora: </label>
 						<input class="form-control" type="time"  placeholder="Ingresa la hora en formato HH:MM" name="hora" id="hora">
+						<div class="form-text">Horario disponible de L-D: 09:00 AM a 21:00 PM</div>
 						<p class="msjError text-danger"></p>
 					</div>
 					<div class="lugar">
 						<label class="form-label">Lugar:</label>
 						<input class="form-control" type="text" placeholder="Ingresa el lugar de la capacitacion"name="lugar" id="lugar" required>
+						<div class="form-text">Solo Disponible en Chile</div>
 						<p class="msjError text-danger"></p>
 					</div>
 					<div class="duracion">
@@ -56,6 +60,7 @@
 					<div class="cantidadAsistentes">
 						<label class="form-label">Cantidad de asistentes:</label>
 						<input class="form-control" type="number" placeholder="Ingresa la cantidad de asistentes" name="cantidadAsistentes" id="cantidadAsistentes" required>
+						<div class="form-text">Máximo 1000 asistentes Mínimo 1</div>
 						<p class="msjError text-danger"></p>
 					</div>
 					

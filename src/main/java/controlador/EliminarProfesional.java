@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import dao.ProfesionalDAO;
 /**
@@ -26,7 +28,13 @@ public class EliminarProfesional extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession(false);
+	    if (session == null || session.getAttribute("userLogin") == null) {
+	    	response.sendRedirect("Login.jsp");
+	    
+	    } else {
+	    	response.sendRedirect("EliminarProfesional.jsp");
+	    }
 	}
 
 	/**
@@ -34,14 +42,15 @@ public class EliminarProfesional extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int idProfesional = Integer.parseInt(request.getParameter("idProfesional"));
+		
+		int idProfesional = Integer.parseInt(request.getParameter("id"));
 
         ProfesionalDAO profesionalDAO = new ProfesionalDAO();
 
-        if (profesionalDAO.delete(idProfesional)) {
-            response.sendRedirect("ListarProfesionales"); // Redirigir a la página que muestra la lista de profesionales actualizada.
+        if (profesionalDAO.delete("idProfesional")) {
+        	 response.sendRedirect("Resultado.jsp?msg=La eliminacion se ha realizado con exito");
         } else {
-            response.sendRedirect("error.jsp"); // Redirigir a una página de error si la eliminación falla.
+        	response.sendRedirect("Resultado.jsp?msg=La eliminacion no se ha realizado. Ingrese un Id valido");
         }
 	}
 

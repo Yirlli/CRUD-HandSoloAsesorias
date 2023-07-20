@@ -46,7 +46,11 @@ selecTipoUsuario.addEventListener('change', function() {
       		</div>
       		<div class="sistemaSalud">
       			<label class="form-label" for="sistemaSalud">Sistema de salud:</label>
-				<input class="form-control" type="number" placeholder="Ingrese 1 para fonasa / Ingrese 2 para Isapre" name="sistemaSalud" id="sistemaSalud">
+				<select id="tipoUsuario" name="sistemaSalud" class="form-control" required>	
+						<option value="despliegue" selected></option>
+						<option value="Fonasa" selected>Opcion 1 Fonasa</option>
+						<option value="Isapre">Opcion 2 Isapre</option>
+				</select>
 				<p class="msjError text-danger"></p> 
       		</div>
       		<div class="direccion">

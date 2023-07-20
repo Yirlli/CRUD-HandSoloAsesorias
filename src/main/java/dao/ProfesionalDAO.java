@@ -39,7 +39,7 @@ public class ProfesionalDAO implements Crud <Profesional>{
 			ps = conexion.getConexion().prepareStatement(SQL_READALL);
 			res= ps.executeQuery();
 			while(res.next()) {
-				listaProfesional .add(new Profesional(res.getInt(1), res.getString(2),res.getString(3)));
+				listaProfesional.add(new Profesional(res.getInt(1), res.getString(2),res.getString(3)));
 			}
 			
 		}catch(SQLException e) {

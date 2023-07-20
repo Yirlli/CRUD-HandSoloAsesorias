@@ -40,7 +40,7 @@ public class ListarAdministrativo extends HttpServlet {
             AdministrativoDAO administrativoDAO = new AdministrativoDAO();
             List<Administrativo> listaAdministrativos = administrativoDAO.readAll();
             request.setAttribute("listaAdministrativos", listaAdministrativos);
-            getServletContext().getRequestDispatcher("/ListarAdministrativo.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/ListarUsuario.jsp").forward(request, response);
         }
 		
 	}

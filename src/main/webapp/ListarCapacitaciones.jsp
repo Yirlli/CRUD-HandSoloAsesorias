@@ -16,19 +16,19 @@
  		<jsp:include page="Menu.jsp" />
 	</header>
  <h3 class="text-center p-2">Lista de capacitaciones</h3>
-    <c:forEach var="capacitacion" items="${listaCapacitacion}">
+    <c:forEach var="capacitacion" items="${listaCapacitaciones}">
         <section class="fondo d-flex container-fluid justify-content-center p-5">
             <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
                 <div class="container-fluid">
                     <p><b>Identificador N°:</b> ${capacitacion.id}</p>
                     <p><b>Nombre de la capacitacion:</b> ${capacitacion.nombre}</p>
                     <p><b>Detalle:</b> ${capacitacion.detalle}</p>
-                    <p><b>Rut del cliente:</b> ${capacitacion.detalle}</p>
-                    <p><b>Dia:</b> ${capacitacion.detalle}</p>
-                    <p><b>Hora:</b> ${capacitacion.detalle}</p>
-                    <p><b>Lugar:</b> ${capacitacion.detalle}</p>
-                    <p><b>Duracion:</b> ${capacitacion.detalle}</p>
-                    <p><b>Cantidad de asistentes:</b> ${capacitacion.detalle}</p>
+                    <p><b>Rut del cliente:</b> ${capacitacion.rutCliente}</p>
+                    <p><b>Dia:</b> ${capacitacion.dia}</p>
+                    <p><b>Hora:</b> ${capacitacion.hora}</p>
+                    <p><b>Lugar:</b> ${capacitacion.lugar}</p>
+                    <p><b>Duracion:</b> ${capacitacion.duracion}</p>
+                    <p><b>Cantidad de asistentes:</b> ${capacitacion.cantidadAsistentes}</p>
                   
 					
                 </div>

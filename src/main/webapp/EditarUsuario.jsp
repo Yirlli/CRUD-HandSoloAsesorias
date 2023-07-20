@@ -14,18 +14,33 @@
 	</header>
 	
 	<section class="fondo d-flex justify-content-center aligm-items-center container-fluid vh-100">
-		<div class="listaUsuarios">
-			<h3>Actualizar Usuario</h3>
-    		<form action="EditarUsuario" method="post">
-        		<input type="hidden" name="id" value="${id}" /> <!-- Aquí obtendrás el ID del usuario que deseas actualizar -->
-       			<label for="nombre">Nombre:</label>
-        		<input type="text" name="nombre" value="${nombre}" /> <!-- Aquí mostrarás el nombre actual del usuario a actualizar -->
-        		<label for="tipo">Tipo:</label>
-        		<input type="text" name="tipo" value="${tipo}" /> <!-- Aquí mostrarás el tipo actual del usuario a actualizar -->
-        		<input type="submit" value="Actualizar" />
+		<div class="w-75">
+			<h2 >Editar Usuario</h2>
+			<form action="EditarUsuario" method="post">
+				<div class="d-flex flex-column bg-white fondoUser rounded-1 p-5 align-items-center justify-content-center">
+    				<label for="id" class="form-label">Id:</label>
+        			<input class="form-control w-50"type="text" name="id"  placeholder="Ingresa el Id del usuario a modificar"> 
+       				<label for="nombre" class="form-label">Nombre:</label>
+        			<input type="text" name="nombre" class="form-control w-50" placeholder="Ingrese el nombre a modificar" /> 
+        			<label for="tipo" class="form-label">Tipo de usuario:</label>
+        			<select id="tipo" name="tipo" class="form-control w-50">
+						<option value="Administrativo">Administrativo</option>
+						<option value="Cliente">Cliente</option>
+						<option value="Profesional">Profesional</option>
+					</select>
+        			<div class="d-flex mt-5 gap-3">
+    					<button class="btn btn-success"> Actualizar</button>
+    					<button class="btn btn-danger">Borrar</button>
+    				</div>
+        		</div>
     		</form>
-    	
+    		
+    	</div>
 	</section>
+	<div class="volver mb-5 d-flex justify-content-center">
+		<a href="Index.jsp">Volver a página de inicio</a>
+	</div> 
+
 
 </body>
 </html>

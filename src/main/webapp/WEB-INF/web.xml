@@ -209,4 +209,14 @@
     <servlet-name>ListarAdministrativo</servlet-name>
     <url-pattern>/ListarAdministrativo</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EliminarCapacitacion</display-name>
+    <servlet-name>EliminarCapacitacion</servlet-name>
+    <servlet-class>controlador.EliminarCapacitacion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarCapacitacion</servlet-name>
+    <url-pattern>/EliminarCapacitacion</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -91,20 +91,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (validarForm()) {
 	Swal.fire({
-  		title: 'Usuario creado satisfactoriamente!',
+  		title: 'Esta seguro que los datos ingresadas son correctos?',
   		icon: 'success',
   		showCancelButton: true,
-  		confirmButtonText: 'Crear otro usuario',
-  		cancelButtonText: 'Mostrar lista de usuarios',
+  		confirmButtonText: 'Si, enviar',
+  		cancelButtonText: 'No',
 		}).then((result) => {
   			if (result.isConfirmed) {
-        	location.href = 'CrearUsuario';
-      		} 
-      		else {
-        	location.href = 'ListarUsuario';
-      		}
-      		form.submit();
+
+            form.submit(); 
+        } else {
+            Swal.fire({
+                title: 'Operación cancelada',
+                icon: 'info',
+                confirmButtonText: 'Aceptar',
+            })
+      			}
     		});
-    }
-  });
+    	}
+  	});
 });

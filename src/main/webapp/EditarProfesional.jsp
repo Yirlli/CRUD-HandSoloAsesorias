@@ -14,23 +14,30 @@
 	</header>
 	
 	<section class="fondo d-flex justify-content-center aligm-items-center container-fluid vh-100">
-			<div class="listaUsuarios">
-				<h2>Editar Profesional</h2>
-				
+			<div class="w-75">
+				<h2>Editar Usuario Profesional</h2>
+    			<form action="EditarProfesional" method="post">
+    				<div class="d-flex flex-column bg-white fondoUser rounded-1 p-5 align-items-center justify-content-center">
+    					<label class="form-label">Id</label>
+    					<input type="text" placeholder="ingrese el ID del usuario a editar" class="form-control w-50" name="id"required> 
     			
-    				<form action="" method="post">
-    					<div class="d-flex flex-column bg-white fondoUser rounded-1 p-5 w-30">
-    						<label class="form-label">Id</label>
-    						<input type="text" placeholder="ingrese el ID del usuario a editar" required> 
-    						<div class="d-flex">
-    							<button class="btn"> Enviar</button>
-    							<button class="btn">Borrar</button>
-    						</div>
-    						
+         				<label class="form-label" for="titulo">Titulo:</label>
+						<input class="form-control w-50" type="text" placeholder="Ingrese su titulo profesional" name="titulo"id="titulo" required>
+						<div class="form-text">Minimo 20 caracteres, maximo 50</div>
+						<label class="form-label" for="fechaIngreso">Fecha de ingreso:</label>
+						<input class="form-control w-50" type="date" placeholder="Ingrese la fecha de ingreso" name="fechaIngreso" id="fechaIngreso" required>
+						<div class="d-flex mt-5 gap-3">
+    						<button class="btn btn-success"> Actualizar</button>
+    						<button class="btn btn-danger">Borrar</button>
     					</div>
-    				</form>
-    	
+    						
+    				</div>
+    			</form>
+    		</div>
 		</section>
+		<div class="volver mb-5 d-flex justify-content-center">
+			<a href="Index.jsp">Volver a página de inicio</a>
+		</div> 
 
 
 </body>

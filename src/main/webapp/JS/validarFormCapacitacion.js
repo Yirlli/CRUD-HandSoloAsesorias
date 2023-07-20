@@ -73,17 +73,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		if (validarForm()) {
     		Swal.fire({
-      		title: 'Esta seguro que los datos ingresadas son correctos?',
-      		icon: 'success',
-      		showCancelButton: true,
-      		confirmButtonText: 'Si, enviar',
-    
-    		}).then((result) => {
-      			if (result.isConfirmed) {
-        		location.href = 'CapacitacionSatisfactorio.jsp';
-      			} 
-  
-      			form.submit();
+  		title: 'Esta seguro que los datos ingresadas son correctos?',
+  		icon: 'success',
+  		showCancelButton: true,
+  		confirmButtonText: 'Si, enviar',
+  		cancelButtonText: 'No',
+		}).then((result) => {
+  			if (result.isConfirmed) {
+
+            form.submit(); 
+        } else {
+            Swal.fire({
+                title: 'Operación cancelada',
+                icon: 'info',
+                confirmButtonText: 'Aceptar',
+            })
+      			}
     			});
   			}	
  	});

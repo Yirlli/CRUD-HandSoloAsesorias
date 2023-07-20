@@ -39,7 +39,7 @@ public class ClienteDAO implements Crud<Cliente>{
 			ps = conexion.getConexion().prepareStatement(SQL_READALL);
 			res= ps.executeQuery();
 			while(res.next()) {
-				listaClientes.add(new Cliente(res.getInt(1), res.getString(2),res.getString(3),res.getString(4), res.getString(5), res.getInt(6), res.getString(7),res.getString(8), res.getInt(9)));
+				listaClientes.add(new Cliente(res.getInt(1), res.getString(2),res.getString(3),res.getString(4), res.getString(5), res.getString(6), res.getString(7),res.getString(8), res.getInt(9)));
 			}
 			
 		}catch(SQLException e) {
@@ -61,7 +61,7 @@ public class ClienteDAO implements Crud<Cliente>{
 		ps.setString(2, c.getApellidos());
 		ps.setString(3, c.getTelefono());
 		ps.setString(4, c.getAfp());
-		ps.setInt(5, c.getSistemaSalud());
+		ps.setString(5, c.getSistemaSalud());
 		ps.setString(6, c.getDireccionCliente());
 		ps.setString(7, c.getComunaCliente());
 		ps.setInt(8, c.getEdad());
@@ -110,7 +110,7 @@ public class ClienteDAO implements Crud<Cliente>{
 			ps.setString(2, c.getApellidos());
 			ps.setString(3, c.getTelefono());
 			ps.setString(4, c.getAfp());
-			ps.setInt(5, c.getSistemaSalud());
+			ps.setString(5, c.getSistemaSalud());
 			ps.setString(6, c.getDireccionCliente());
 			ps.setString(7, c.getComunaCliente());
 			ps.setInt(8, c.getEdad());
@@ -141,7 +141,7 @@ public class ClienteDAO implements Crud<Cliente>{
 			
 			res= ps.executeQuery();
 			while(res.next()) {
-				clientes = new Cliente(res.getInt(1), res.getString(2),res.getString(3),res.getString(4), res.getString(5), res.getInt(6), res.getString(7),res.getString(8), res.getInt(9));
+				clientes = new Cliente(res.getInt(1), res.getString(2),res.getString(3),res.getString(4), res.getString(5), res.getString(6), res.getString(7),res.getString(8), res.getInt(9));
 			}
 			return clientes;
 		}catch(SQLException e) {

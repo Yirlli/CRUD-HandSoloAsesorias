@@ -9,18 +9,18 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-import dao.AdministrativoDAO;
+import dao.CapacitacionDAO;
 
 /**
- * Servlet implementation class EliminarAdministrativo
+ * Servlet implementation class EliminarCapacitacion
  */
-public class EliminarAdministrativo extends HttpServlet {
+public class EliminarCapacitacion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EliminarAdministrativo() {
+    public EliminarCapacitacion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,7 +35,7 @@ public class EliminarAdministrativo extends HttpServlet {
 	    	response.sendRedirect("Login.jsp");
 	    
 	    } else {
-	    	response.sendRedirect("EliminarAdministrativo.jsp");
+	    	response.sendRedirect("EliminarCapacitacion.jsp");
 	    }
 	}
 
@@ -44,12 +44,12 @@ public class EliminarAdministrativo extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int idAdministrativo = Integer.parseInt(request.getParameter("id"));
+		int idCapacitacion = Integer.parseInt(request.getParameter("id"));
 
-		AdministrativoDAO administrativoDAO = new AdministrativoDAO();
+        CapacitacionDAO capacitacionDAO = new CapacitacionDAO();
 
-        if (administrativoDAO.delete(idAdministrativo)) {
-            response.sendRedirect("Resultado.jsp?msg=La eliminacion se ha realizado con exito"); 
+        if (capacitacionDAO .delete(idCapacitacion)) {
+        	response.sendRedirect("Resultado.jsp?msg=La eliminacion se ha realizado con exito");
         } else {
         	response.sendRedirect("Resultado.jsp?msg=La eliminacion no se ha realizado. Ingrese un Id valido");
         }

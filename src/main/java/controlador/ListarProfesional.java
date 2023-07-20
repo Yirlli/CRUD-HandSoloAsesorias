@@ -39,7 +39,7 @@ public class ListarProfesional extends HttpServlet {
             ProfesionalDAO profesionalDAO = new ProfesionalDAO();
             List<Profesional> listaProfesional = profesionalDAO.readAll();
             request.setAttribute("listaProfesional", listaProfesional);
-            getServletContext().getRequestDispatcher("/ListaProfesional.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/ListarUsuario.jsp").forward(request, response);
         }
 	}
 

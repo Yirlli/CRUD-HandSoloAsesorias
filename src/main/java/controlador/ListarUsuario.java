@@ -11,10 +11,9 @@ import modelo.Capacitacion;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import modelo.Usuario;
-import modelo.Administrativo;
-import modelo.Profesional;
-import modelo.Usuario;
+import dao.UsuarioDAO;
 /**
  * Servlet implementation class ListarUsuario
  */
@@ -39,7 +38,8 @@ public class ListarUsuario extends HttpServlet {
 
 	        response.sendRedirect("Login.jsp");
 	    } else {
-	    	List<Usuario> listaUsuarios = (List<Usuario>) session.getAttribute("listaUsuarios");
+	    	UsuarioDAO usuarioDAO = new UsuarioDAO();
+	    	List<Usuario> listaUsuarios = usuarioDAO.readAll();
 	        request.setAttribute("listaUsuarios", listaUsuarios);
 	        getServletContext().getRequestDispatcher("/ListarUsuario.jsp").forward(request, response);
 	    }
